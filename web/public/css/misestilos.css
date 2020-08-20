@@ -1,0 +1,28 @@
+/* 
+    Created on : 12/04/2020, 08:29:27 PM
+    Author     : Alvaro Rubiano
+*/
+body{
+    width: 100%;
+    height: 100%;    
+}
+
+#administrador{
+    background: url(../Imagenes/JovenesUniversitarios.png) no-repeat fixed center center #333;
+    background-size: cover;    
+    height: 500px;    
+}
+
+#inicioGeneral{
+    background: url(../Imagenes/JovenesUniversitarios.png) no-repeat fixed center center #333;
+    background-size: cover;    
+    height: 500px;    
+}
+
+
+
+
+
+
+
+
