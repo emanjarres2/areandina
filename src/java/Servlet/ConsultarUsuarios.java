@@ -63,6 +63,7 @@ public class ConsultarUsuarios extends HttpServlet {
             item.addProperty("Name_program", rs.getString("Name_program"));
             item.addProperty("Semestre", rs.getString("Semestre"));
             item.addProperty("Modalidad", rs.getString("Modalidad"));
+            item.addProperty("acciones", "<button type='submit' name='eliminar' id='"+rs.getInt("Id_usuarios")+"' class='btn btn-danger btn-xs eliminar' title='eliminar'><i class='fas fa-trash-alt'></i></button>");
             array.add(item);
             //datos +=rs.getInt(1)+" "+rs.getString(2);
         }

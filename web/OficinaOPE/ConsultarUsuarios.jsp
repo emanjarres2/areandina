@@ -21,39 +21,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-        <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
- <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> 
- <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-       <script type="text/javascript">
-            
-            $(document).ready(function() {
-                
-                $('#tablaUsuarios').DataTable({
-                    
-                    "ajax":{
-                      "method":"POST",
-                      "url":"../ConsultarUsuarios",
-                      "dataSrc":"datos"
-                    },"columns":[
-                      { "data": "Id_usuarios" },
-                      { "data": "Name_users" },
-                      { "data": "Mail_users" },
-                      { "data": "Phone_users" },
-                      { "data": "nombre" },
-                      { "data": "Name_campus" },
-                      { "data": "Name_faculty" },
-                      { "data": "Name_program" },
-                      { "data": "Semestre" },
-                      { "data": "Modalidad" }
-                      
-                    ]
-                });
-              
-                //$.fn.dataTable.ext.errMode = 'throw';
-               
-            });
-        
-        </script> 
+       
     </head>
     <body>
         <%--Inicio del encabezado de la página --%>  
@@ -111,7 +79,8 @@
                                     <th>Facultad</th>
                                     <th>Programa</th>
                                     <th>Semestre</th>
-                                    <th>Modalidad</th>                                    
+                                    <th>Modalidad</th>  
+                                    <th>acciones</th>
                                 </tr>
                             </thead>
                             <tbody  class="text-center">
@@ -128,7 +97,59 @@
             </div>
         </div>
 <%-- Fin del píe de la página --%>  
-
+ <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
+ <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> 
+ <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+ <script src="https://kit.fontawesome.com/4e46819824.js" crossorigin="anonymous"></script>
+       <script type="text/javascript">
+            
+            $(document).ready(function() {
+                
+                $('#tablaUsuarios').DataTable({
+                    
+                    "ajax":{
+                      "method":"POST",
+                      "url":"../ConsultarUsuarios",
+                      "dataSrc":"datos"
+                    },"columns":[
+                      { "data": "Id_usuarios" },
+                      { "data": "Name_users" },
+                      { "data": "Mail_users" },
+                      { "data": "Phone_users" },
+                      { "data": "nombre" },
+                      { "data": "Name_campus" },
+                      { "data": "Name_faculty" },
+                      { "data": "Name_program" },
+                      { "data": "Semestre" },
+                      { "data": "Modalidad" },
+                      { "data": "acciones" }
+                      
+                    ]
+                });
+              
+               $(document).on('click','.eliminar',function(){
+                       var identificacion =$(this).attr('id');
+                       var row =$(this).parent().parent();
+                       var texto;
+                       var r=confirm("Seguro que desea eliminar Usuario");
+                       if(r==true){
+                           $.ajax({
+                               url:"../ModificarUsuarios",
+                               method:"POST",
+                               data:{"dos":"eliminar","identificacion":"identificacion"},
+                               success:function(data){
+                                   row.remove();
+                               },
+                               error:function(error){
+                                   alert('Error');
+                               }
+                           });
+                       }
+                   });
+               
+            });
+        
+        </script> 
           
         
     </body>
