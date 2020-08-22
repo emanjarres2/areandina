@@ -6,6 +6,7 @@
 package Modelo;
 
 import Clases.Factor;
+import Clases.Remision;
 import Clases.Semestre;
 import Clases.TipoMonitor;
 import java.sql.PreparedStatement;
@@ -20,17 +21,14 @@ import java.util.ArrayList;
 public class GestionesListas extends Conexion
 {
     //Metodo para mostrar la lista de factores
-    public ArrayList<Factor> getFactor(){
-        
+    public ArrayList<Factor> getFactor(){        
         ArrayList<Factor> factores = new ArrayList<>();
         PreparedStatement pst ;
-        ResultSet rs ;
-        
+        ResultSet rs ;        
         try {
             String consulta = "SELECT * FROM factor_asociado";
             pst = (PreparedStatement) getConexion().prepareStatement(consulta);
-            rs = pst.executeQuery();
-            
+            rs = pst.executeQuery();            
             while (rs.next()) {
                 factores.add(new Factor(
                         rs.getInt("Id_factor"),
@@ -108,6 +106,36 @@ public class GestionesListas extends Conexion
             }
         }
         return monitor;
+    } 
+    
+    //Metodo para mostrar la lista de tipo de remisiones
+    public ArrayList<Remision> getRemision(){
+        
+        ArrayList<Remision> remision = new ArrayList<>();
+        PreparedStatement pst ;
+        ResultSet rs ;
+        
+        try {
+            String consulta = "SELECT * FROM remision";
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            rs = pst.executeQuery();
+            
+            while (rs.next()) {
+                remision.add(new Remision(
+                        rs.getInt("Id_remision"),
+                        rs.getString("Nombre_remision")                        
+                ));                
+            }  
+        } catch (SQLException e) {
+                System.out.println("Error de cierre" + e );
+        }finally{
+            try {
+                
+            } catch (Exception e2) {
+                System.out.println("Error de cierre" + e2 );
+            }
+        }
+        return remision;
     } 
     
     //Metodo para mostrar la lista de usuario administrativo
@@ -189,7 +217,8 @@ public class GestionesListas extends Conexion
         }        
       return cantidad;
     }
-      public String cantMonitorVirtual(){
+    
+    public String cantMonitorVirtual(){
        PreparedStatement pst = null;
        ResultSet rs = null; 
        
@@ -213,6 +242,7 @@ public class GestionesListas extends Conexion
         }        
       return cantidad;
     }
+    
     public String cantTutorias(){
        PreparedStatement pst = null;
        ResultSet rs = null; 
@@ -286,8 +316,7 @@ public class GestionesListas extends Conexion
             }
         }        
       return cantidad;
-    }
-    
+    }   
     
     public String cantEstudiantesRegistrados(){
        PreparedStatement pst = null;

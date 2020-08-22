@@ -34,7 +34,9 @@ public class SeleccionarFacultad extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
-          int campus = Integer.parseInt(request.getParameter("codigocampus"));
+        
+        
+        int campus = Integer.parseInt(request.getParameter("codigocampus"));
         
         String htmlcode2 = "";
         

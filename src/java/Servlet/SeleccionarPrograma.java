@@ -30,7 +30,8 @@ public class SeleccionarPrograma extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        int idFacultad = Integer.parseInt(request.getParameter("codigofacultad"));
+        
+        int idFacultad = Integer.parseInt(request.getParameter("codigofacultad"));        
         String htmlcode2 = "";
         GestionesProgramas gm = new GestionesProgramas();
         htmlcode2 = gm.getProgramas(idFacultad).stream().map(c -> c.getId_programa()+ " - " + c.getNombre_Programa()+ " - " +c.getModalidad()+":").reduce(htmlcode2, String::concat);        

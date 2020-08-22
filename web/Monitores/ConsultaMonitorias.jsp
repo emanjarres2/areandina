@@ -62,7 +62,7 @@
 <%-- Cuerpo de la página --%>
             <div class="card-body">
                 <div class="card text-center">
-                    <h1>Monitorias Pendientes</h1>
+                    <h1>Monitorias Asignadas desde la Oficina de Orientacion y Permanencia</h1>
                     <input id="nombre" name="nombre" value="${usuario}" visibility: hidden>
                 </div>  
             </div>

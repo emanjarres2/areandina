@@ -168,6 +168,14 @@
         <servlet-name>ConsultarTodosUsuarios</servlet-name>
         <servlet-class>Servlet.ConsultarTodosUsuarios</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>_SeleccionaMateria</servlet-name>
+        <servlet-class>Servlet._SeleccionaMateria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>_GuardarResultados</servlet-name>
+        <servlet-class>Servlet._GuardarResultados</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -335,6 +343,14 @@
     <servlet-mapping>
         <servlet-name>ConsultarTodosUsuarios</servlet-name>
         <url-pattern>/ConsultarTodosUsuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>_SeleccionaMateria</servlet-name>
+        <url-pattern>/seleccionaMaterias</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>_GuardarResultados</servlet-name>
+        <url-pattern>/guardarResultados</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

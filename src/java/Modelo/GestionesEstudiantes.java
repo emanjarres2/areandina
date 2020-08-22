@@ -19,8 +19,7 @@ public class GestionesEstudiantes extends Conexion{
     public ArrayList<Estudiante> getEstudiantes(){        
         ArrayList<Estudiante> estudiante = new ArrayList<>();
         PreparedStatement pst = null;
-        ResultSet rs = null;
-                        
+        ResultSet rs = null;                        
         try {            
             String consulta = "Select * from estudiantes";
             pst =(PreparedStatement) getConexion().prepareStatement(consulta);
@@ -38,7 +37,8 @@ public class GestionesEstudiantes extends Conexion{
                         rs.getInt("Id_program"),
                         rs.getString("Semestre"),
                         rs.getString("Modalidad"),
-                        rs.getInt("Documento")
+                        rs.getInt("Documento"),
+                        rs.getString("codigo_estudiante")
                     )
                 );
             }    
@@ -55,4 +55,16 @@ public class GestionesEstudiantes extends Conexion{
         }        
         return estudiante;
      }
+
+    public String getListaEstudiantes(){
+        
+        String htmlcode = "";       
+        GestionesEstudiantes le = new GestionesEstudiantes();        
+        for (Estudiante e : le.getEstudiantes()) {
+            htmlcode += "<option value='"+e.getCodigo()+"'>"+e.getNombres()+"</option> ";        
+        }return htmlcode;
     }
+
+
+
+}

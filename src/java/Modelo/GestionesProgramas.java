@@ -137,8 +137,7 @@ public class GestionesProgramas extends Conexion
             }
         }        
         return programas;
-    }
-    
+    }    
     
     //Metodo para mostrar la lista de programas registrados
     public ArrayList<Programas> getListaProgramas(){

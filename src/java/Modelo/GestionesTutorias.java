@@ -56,14 +56,15 @@ public class GestionesTutorias extends Conexion {
         
         return tutorias;
     }
-        
+    
+    //Metodo para actualizar tutorias asignadas
     public int actualizarTutorias(Resultado r){
         PreparedStatement pst = null;
         ResultSet rs = null;
         int resultado = 0;
         
             try {
-                String consulta = "INSERT INTO resultado (Id_resultado, fecha, asignatura, observaciones, nombre, ruta) VALUES(?,?,?,?,?,?)";
+                String consulta = "INSERT INTO resultado (fecha, asignatura, observaciones, nombre, ruta) VALUES(?,?,?,?,?)";
                 pst = (PreparedStatement) getConexion().prepareStatement(consulta);
                                 
                 pst.setInt(1, r.getId());
@@ -93,6 +94,42 @@ public class GestionesTutorias extends Conexion {
         return resultado;
     }
     
+    //Metodo para guardar desde el formario de reporte de tutorias
+    public int repotarTutorias(Resultado r){
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        int resultado = 0;
+        
+            try {
+                String consulta = "INSERT INTO resultado ( remision, fecha, asignatura, observa, nombre, ruta, Id_alumno) VALUES(?,?,?,?,?,?,?)";
+                pst = (PreparedStatement) getConexion().prepareStatement(consulta);
+                pst.setInt(1, r.getRemision());
+                pst.setDate(2, r.getFecha());
+                pst.setInt(3, r.getAsignatura());
+                pst.setString(4, r.getObservaciones());
+                pst.setString(5, r.getNombre());
+                pst.setString(6, r.getRuta());
+                pst.setString(7, r.getIdEstudiante());
+                
+                pst.executeUpdate();                
+
+            } catch (SQLException e) {
+                System.out.print("Error: " + e);                
+            } finally {
+                try {
+                    if (pst != null) {
+                        pst.close();
+                        
+                    }
+                    if (rs != null) {
+                        rs.close();
+                    }
+                } catch (SQLException e) {
+                    
+                }
+            }        
+        return resultado;
+    }
     
     //Metodo para mostrar la lista de campus registrados
     public ArrayList<ReporteResultado> getResultadoTutorias(){

@@ -41,15 +41,10 @@ public class MuestraCampus {
     //Metodo para enviar el nombre y el id de los campus para la vista de crear las facultades
     public String getNombreCampus(){
         
-        String htmlcode = "";
-        
-        GestionesCampus mnc = new GestionesCampus();
-        
-        for (Campus c : mnc.getCampus()) {
-                       
-            htmlcode += "<option value='"+c.getIdentificador()+"'>"+c.getNombre_campus()+"</option> ";
-            
-        }return htmlcode;
-        
+        String htmlcode = "";        
+        GestionesCampus mnc = new GestionesCampus();        
+        for (Campus c : mnc.getCampus()) {                       
+            htmlcode += "<option value='"+c.getIdentificador()+"'>"+c.getNombre_campus()+"</option> ";            
+        }return htmlcode;        
     }
 }

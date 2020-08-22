@@ -30,13 +30,13 @@ public class GestionesCampus extends Conexion{
                 return true;
             }          
            
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error 3: " + e);
         }finally{
             try {
                 if(getConexion() != null) getConexion().close();
                 if(pst != null) pst.close();                
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 System.out.println("Error 4: " + e);
             }
         }
@@ -91,13 +91,13 @@ public class GestionesCampus extends Conexion{
                 return true;
             }           
            
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error 3: " + e);
         }finally{
             try {
                 if(getConexion() != null) getConexion().close();
                 if(pst != null) pst.close();                
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 System.out.println("Error 4: " + e);
             }
         }

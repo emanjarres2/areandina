@@ -21,15 +21,15 @@ public class Estudiante {
     private int id_programa;
     private String semestre;
     private String modalidad;
-     private int documento;
-    
+    private int documento;
+    private String codigo;
 
     public Estudiante() {
     }
 
-    public Estudiante(int identificacion, String nombres, String correo, String telefono, String tipo, int id_campus, int id_facultad, int id_programa, String semestre, String modalidad,int documento) {
-        this.identificacion = identificacion;
-       
+    public Estudiante(int identificacion, String nombres, String correo, String telefono, String tipo, int id_campus, int id_facultad, int id_programa, String semestre, String modalidad,int documento, String codigo) {
+        
+        this.identificacion = identificacion;       
         this.nombres = nombres;
         this.correo = correo;
         this.telefono = telefono;
@@ -39,7 +39,9 @@ public class Estudiante {
         this.id_programa = id_programa;
         this.semestre = semestre;
         this.modalidad = modalidad;
-         this.documento = documento;
+        this.documento = documento;
+        this.codigo = codigo;
+                
     }
 
     public int getIdentificacion() {
@@ -128,6 +130,20 @@ public class Estudiante {
 
     public void setModalidad(String modalidad) {
         this.modalidad = modalidad;
+    }
+
+    /**
+     * @return the codigo
+     */
+    public String getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
    

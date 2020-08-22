@@ -41,7 +41,7 @@ public class CrearTutorias extends HttpServlet {
         Conexion cn = new Conexion();
         PreparedStatement st = null;
         ResultSet rs = null;
-         Date fecha = Date.valueOf(request.getParameter("fecha"));
+        Date fecha = Date.valueOf(request.getParameter("fecha"));
         int estudiante = Integer.parseInt(request.getParameter("estudiante"));
         int programa = Integer.parseInt(request.getParameter("programa"));        
         int semestre = Integer.parseInt(request.getParameter("semestre"));

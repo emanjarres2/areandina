@@ -71,8 +71,7 @@ public class GestionesMaterias extends Conexion {
         
         return false;       
         
-    }
-    
+    }    
        
     //Metodo para consulta de registros en materia
     public ArrayList<Materias> getMaterias(){
@@ -83,6 +82,37 @@ public class GestionesMaterias extends Conexion {
         
         try {
             String consulta = "select Id_clase, Nombre_clase, Id_programa from materia";
+            pst = (PreparedStatement) getConexion().prepareStatement(consulta);
+            rs = pst.executeQuery();
+            
+            while (rs.next()) {
+                materias.add(new Materias(
+                        rs.getInt("Id_clase"),
+                        rs.getString("Nombre_clase"),
+                        rs.getInt("Id_programa")
+                ));                
+            }
+            
+        } catch (SQLException e) {
+                System.out.println("Error de cierre" + e );
+        }finally{
+            try {
+                
+            } catch (Exception e2) {
+                System.out.println("Error de cierre" + e2 );
+            }
+        }
+        return materias;
+    }
+    
+    public ArrayList<Materias> getMateria(int x){
+        
+        ArrayList<Materias> materias = new ArrayList<>();
+        PreparedStatement pst;
+        ResultSet rs ;
+        
+        try {
+            String consulta = "SELECT * FROM materia WHERE Id_programa="+x;
             pst = (PreparedStatement) getConexion().prepareStatement(consulta);
             rs = pst.executeQuery();
             

@@ -122,7 +122,7 @@
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> 
  <script src="../public/js/bootstrap.min.js" type="text/javascript"></script
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-  <script type="text/javascript">
+<script type="text/javascript">
         
         $(document).ready(function(){
             $('select[name=idcampus]').on('change', function(){
@@ -161,10 +161,10 @@
                 });
                 
             })
-        )}
+        });
                
     </script>
-     <script>
+    <script>
             window.addEventListener('load', function (){
     
             document.getElementById('btnformularioCrear').addEventListener('click', function (){
@@ -178,14 +178,9 @@
             if(idcampus.length > 0 && idfacultad.length > 0 && nombreprograma.length > 0 && nombremodalidad.length > 0 ){
              confirmacion = true;
             }
-           
+         
             if(confirmacion){
-              Swal.fire(
-                    'Registro de Programa',
-                    'Se ha Agregrado un Nuevo Programa',
-                    'success'
-                );
-            //alert('el programa fué creada con exito.' );
+            alert('el programa fué creada con exito.' + idcampus + ", " + idfacultad + ", " + nombreprograma + ", " + nombremodalidad);
             
             document.getElementById('formularioProgramas').submit();             
                 }else{
@@ -194,7 +189,7 @@
                     }
                     );
                 }
-            
+            );
     </script> 
     </body>
 </html>

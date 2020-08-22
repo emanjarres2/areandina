@@ -12,26 +12,33 @@ import java.sql.Date;
  * @author Alvaro Rubiano
  */
 public class Resultado {
-    private int id;       
+    private int id;     
+    private int idTutoria;
+    private int remision;
     private Date fecha;
     private int asignatura;
     private String observaciones;
     private String nombre;
     private String ruta;
+    private String idEstudiante;
     
 
     public Resultado() {
     }
 
-    public Resultado(int id, Date fecha, int asignatura, String observaciones, String nombre, String ruta) {
+    public Resultado(int id, int idTutoria, int remision, Date fecha, int asignatura, String observaciones, String nombre, String ruta, String idEstudiante) {
         this.id = id;
+        this.idTutoria = idTutoria;
+        this.remision = remision;
         this.fecha = fecha;
         this.asignatura = asignatura;
         this.observaciones = observaciones;
         this.nombre = nombre;
         this.ruta = ruta;
+        this.idEstudiante = idEstudiante;
+        
     }
-
+    
     
     /**
      * @return the id
@@ -115,6 +122,48 @@ public class Resultado {
      */
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    /**
+     * @return the idTutoria
+     */
+    public int getIdTutoria() {
+        return idTutoria;
+    }
+
+    /**
+     * @param idTutoria the idTutoria to set
+     */
+    public void setIdTutoria(int idTutoria) {
+        this.idTutoria = idTutoria;
+    }
+
+    /**
+     * @return the remision
+     */
+    public int getRemision() {
+        return remision;
+    }
+
+    /**
+     * @param remision the remision to set
+     */
+    public void setRemision(int remision) {
+        this.remision = remision;
+    }
+
+    /**
+     * @return the idEstudiante
+     */
+    public String getIdEstudiante() {
+        return idEstudiante;
+    }
+
+    /**
+     * @param idEstudiante the idEstudiante to set
+     */
+    public void setIdEstudiante(String idEstudiante) {
+        this.idEstudiante = idEstudiante;
     }
     
     

@@ -80,26 +80,31 @@
                 
                 <div class="container" >
                     <div class="row justify-content-md-center" style="margin-top:8%;">
-                      <div class="col-lg-3">                            
+                        <div class="col-lg-2">                            
                             <a class="nav-link" href="ConsultaMonitorias.jsp">
-                                <img src="../public/img/Monitores.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                                <img src="../public/img/RevisarMonitoriasAsignadas.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>   
-                      </div>
-                        <div class="col-lg-3">                            
+                        </div>
+                        <div class="col-lg-2">                            
                             <a class="nav-link" href="CargueEvidencias.jsp">
-                                <img src="../public/img/Monitorias.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                                <img src="../public/img/AtencionMonitoriasAsignadas.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>   
-                      </div> 
-                        <div class="col-lg-3">                            
+                        </div>                        
+                        <div class="col-lg-2">                            
+                            <a class="nav-link" href="RegistroMonitoria.jsp">
+                                <img src="../public/img/RegistrarMonitorias.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                            </a>   
+                        </div>                        
+                        <div class="col-lg-2">                            
                             <a class="nav-link" href="https://meet.google.com/" target="_blank">
                                 <img src="../public/img/Videoconferencia.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>   
-                      </div> 
-                         <div class="col-lg-3">                            
+                        </div> 
+                        <div class="col-lg-2">                            
                             <a class="nav-link" href="http://gmail.com/" target="_blank">
                                 <img src="../public/img/email.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>   
-                      </div> 
+                        </div> 
                     </div>                    
                 </div> 
             </div>
