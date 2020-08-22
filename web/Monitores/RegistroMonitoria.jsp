@@ -20,6 +20,7 @@
         <link rel="icon" href="../public/img/favicon.ico">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <title>SIGMAA |Registro de Casos de Monitoria</title>
+        <script src="https://kit.fontawesome.com/4e46819824.js" crossorigin="anonymous"></script>
     </head>
     <body>
               <%--Inicio del encabezado de la página --%>  
@@ -41,7 +42,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="AdministracionOPE.jsp">Inicio<span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="index.jsp">Inicio<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="../index.jsp" tabindex="-1" aria-disabled="true">Salir</a>
@@ -57,7 +58,7 @@
             </div>                    
         </div> 
     </div>
-     <div class="container" style="margin-top:4%;">
+     <div class="container" style="margin-top:1%;">
       <div class="card">
         <div class="card-header text-white bg-success mb-3" >
          <i class="fas fa-users fa-2x fa-lg" style="float:left;"> </i> <h3 style="margin-left: 1.5em;"> Monitoria Pendientes</h3> 
@@ -123,17 +124,18 @@
               <p align="justify">Este opción es para que en dado caso el Monitor puede realizar una remisión a la Oficina de Orientación y Permanencia Estudiantil</p>
               <label for="remision">Remisión a OPE</label>
               <select name="remision" id="remision" class="form-control">
-                        <option value="0">Psicologia educativa </option>
-                        <option value="1">Psicologia Clinica</option>
-                        <option value="2">Universidad de familias</option>
-                        <option value="3">Centro de empleabilidad</option>
-                        <option value="4">Monitor Academico</option>
-                        <option value="5">Docente consejero</option>
+                        <option value="0">Seleccione Tipo de Remision</option>
+                        <option value="1">Psicologia educativa </option>
+                        <option value="2">Psicologia Clinica</option>
+                        <option value="3">Universidad de familias</option>
+                        <option value="4">Centro de empleabilidad</option>
+                        <option value="5">Monitor Academico</option>
+                        <option value="6">Docente consejero</option>
                     </select>   
             </div>
               </div>
              <div class="row">
-               <div class="col-5" style="margin-top: 1%;">
+               <div class="col-5"style="margin-top:1%;">
                <select name="evidencias" id="evidencias" class="form-control">
                         <option value="0">Seleccione </option>
                         <option value="1">Fotografia</option>
@@ -142,14 +144,16 @@
                         
                     </select>
                </div>
-             <div class="col-5" style="margin-top: 1%;">
+                 <br>
+                 <br>
+             <div class="col-5"style="margin-top:1%;">
               
                    <input type="file" name="" id="" class="form-control-file">
                   </div>
               
              </div> 
 
-            <div class="row" style="margin-top: 3%;">
+            <div class="row" style="margin-top: 1%;">
             <div class="col">
               <button type="button" class="btn btn-success btn-block" id="btnGuardar"  >Registrar Monitoria</button>
               </div>
@@ -162,7 +166,7 @@
                     
                     
 <%-- Píe de la página --%>            
-        <div class="card text-center">    
+        <div class="card text-center"style="margin-top:1%;">    
             <div class="card-footer text-muted">
                 <h3>Sistema de Información y Gestión de Monitoria Académica Andina - SIGMAA</h3>
             </div>
