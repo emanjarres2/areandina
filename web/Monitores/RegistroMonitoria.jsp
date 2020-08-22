@@ -19,7 +19,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="../public/img/favicon.ico">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <title>SIGMAA |Registro de Casos de Monitoria</title>
+        <title>SIGMAA | Registro de Casos de Monitoria</title>
         <script src="https://kit.fontawesome.com/4e46819824.js" crossorigin="anonymous"></script>
     </head>
     <body>

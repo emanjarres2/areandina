@@ -22,7 +22,7 @@
          <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
         <title>SIGMAA | Listado de Registro de Monitoria</title>
-        
+        <link href="../public/css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <%--Inicio del encabezado de la página --%>  

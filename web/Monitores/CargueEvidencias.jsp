@@ -91,10 +91,10 @@
                             </div>         
                         </div>
                         <div class="form-group row">
-                            <div class="col-12">
+                            <div class="col">
                                 <div class="form-group">
                                     <label for="validationCustom01">Observaciones</label><br>                                                          
-                                    <textarea class="form-control" id="observaciones" name="observaciones" required></textarea>
+                                    <textarea class="form-control" id="observaciones" cols="30" rows="10" name="observaciones" required></textarea>
                                 </div>
                             </div>
                         </div>            
