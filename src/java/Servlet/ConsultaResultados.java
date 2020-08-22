@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author manjarres
+ * @author emanjarres
  */
 public class ConsultaResultados extends HttpServlet {
 
@@ -37,8 +37,8 @@ public class ConsultaResultados extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
+        request.setCharacterEncoding("UTF-8");
         Connection con = null;
         Conexion cn = new Conexion();
         Statement st = null;
@@ -46,9 +46,7 @@ public class ConsultaResultados extends HttpServlet {
         String datos = "";
         
         try {
-            String sql = "SELECT tutorias.Id_tutorias, estudiantes.Name_Estudiantes, semestre.nombre, factor_asociado.Name_factor, usuarios.Name_users, tutorias.observaciones, resultado.observa, resultado.ruta\n" +
-                            "FROM tutorias, resultado, estudiantes, factor_asociado, semestre, usuarios\n" +
-                            "WHERE tutorias.estado='abierto' AND tutorias.Id_estudiante=estudiantes.Documento AND tutorias.semestre=semestre.Id_semestre AND tutorias.Id_factor=factor_asociado.Id_factor AND tutorias.Id_tutorias=resultado.Id_resultado AND tutorias.Id_tutor=usuarios.Id_usuarios";
+            String sql = "select t.Id_tutorias,e.Name_Estudiantes,s.nombre,f.Name_factor,u.Name_users, t.observaciones,r.observa,r.ruta from tutorias t inner join estudiantes e on t.Id_estudiante=e.Documento inner join semestre s on t.semestre=s.Id_semestre inner join factor_asociado f on t.Id_factor=f.Id_factor inner join resultado r on t.Id_tutorias=r.Id_tutoria inner join usuarios u on t.Id_tutor=u.Id_usuarios where t.estado='abierto';";            
             con = cn.getConexion();
             st = con.createStatement();
             rs = st.executeQuery(sql);
@@ -87,8 +85,7 @@ public class ConsultaResultados extends HttpServlet {
             }
         }
         
-        
-        
+          
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -86,7 +86,7 @@ public class _GuardarResultados extends HttpServlet {
                         }
                     }
                     
-                    
+                    r.setIdTutoria(Integer.parseInt(lista.get(0)));
                     r.setRemision(Integer.parseInt(lista.get(1)));                    
                     r.setFecha(Date.valueOf(lista.get(2)));                    
                     r.setAsignatura(Integer.parseInt(lista.get(3)));                    

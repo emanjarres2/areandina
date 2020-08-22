@@ -35,7 +35,7 @@
                    
                     "ajax":{
                       "method":"POST",
-                      "url":"../consultaresultados",
+                      "url":"../ConsultaResultados",
                       "dataSrc":"datos"
                     },"columns":[
                       { "data": "Id_tutorias" },

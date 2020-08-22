@@ -64,7 +64,7 @@ public class GestionesTutorias extends Conexion {
         int resultado = 0;
         
             try {
-                String consulta = "INSERT INTO resultado (fecha, asignatura, observaciones, nombre, ruta) VALUES(?,?,?,?,?)";
+                String consulta = "INSERT INTO resultado (fecha, asignatura, observaciones, nombre, ruta) VALUES(?,?,?,?,?,?)";
                 pst = (PreparedStatement) getConexion().prepareStatement(consulta);
                                 
                 pst.setInt(1, r.getId());
@@ -101,15 +101,17 @@ public class GestionesTutorias extends Conexion {
         int resultado = 0;
         
             try {
-                String consulta = "INSERT INTO resultado ( remision, fecha, asignatura, observa, nombre, ruta, Id_alumno) VALUES(?,?,?,?,?,?,?)";
+                String consulta = "INSERT INTO resultado (Id_tutoria, remision, fecha, asignatura, observa, nombre, ruta, Id_alumno) VALUES(?,?,?,?,?,?,?,?)";
                 pst = (PreparedStatement) getConexion().prepareStatement(consulta);
-                pst.setInt(1, r.getRemision());
-                pst.setDate(2, r.getFecha());
-                pst.setInt(3, r.getAsignatura());
-                pst.setString(4, r.getObservaciones());
-                pst.setString(5, r.getNombre());
-                pst.setString(6, r.getRuta());
-                pst.setString(7, r.getIdEstudiante());
+        
+                pst.setInt(1, r.getIdTutoria());
+                pst.setInt(2, r.getRemision());
+                pst.setDate(3, r.getFecha());
+                pst.setInt(4, r.getAsignatura());
+                pst.setString(5, r.getObservaciones());
+                pst.setString(6, r.getNombre());
+                pst.setString(7, r.getRuta());
+                pst.setString(8, r.getIdEstudiante());
                 
                 pst.executeUpdate();                
 

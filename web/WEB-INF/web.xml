@@ -161,10 +161,6 @@
         <servlet-class>Servlet.subirachivo</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ConsultaResultados</servlet-name>
-        <servlet-class>Servlet.ConsultaResultados</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ConsultarTodosUsuarios</servlet-name>
         <servlet-class>Servlet.ConsultarTodosUsuarios</servlet-class>
     </servlet>
@@ -175,6 +171,10 @@
     <servlet>
         <servlet-name>_GuardarResultados</servlet-name>
         <servlet-class>Servlet._GuardarResultados</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConsultaResultados</servlet-name>
+        <servlet-class>Servlet.ConsultaResultados</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -337,10 +337,6 @@
         <url-pattern>/subirachivo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ConsultaResultados</servlet-name>
-        <url-pattern>/consultaresultados</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ConsultarTodosUsuarios</servlet-name>
         <url-pattern>/ConsultarTodosUsuarios</url-pattern>
     </servlet-mapping>
@@ -351,6 +347,10 @@
     <servlet-mapping>
         <servlet-name>_GuardarResultados</servlet-name>
         <url-pattern>/guardarResultados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConsultaResultados</servlet-name>
+        <url-pattern>/ConsultaResultados</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
