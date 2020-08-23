@@ -61,7 +61,7 @@ public class ConsultaResultados extends HttpServlet {
                 item.addProperty("monitor", rs.getString("Name_users"));
                 item.addProperty("obsOPE", rs.getString("observaciones"));
                 item.addProperty("obsMON", rs.getString("observa"));
-                item.addProperty("ruta", rs.getString("ruta"));
+                item.addProperty("ruta", "<a href='../../"+rs.getString("ruta")+"' class='btn-xs btn btn-success' target='_blank' style=' margin-left:50px; ' title='Evidencias' download='evidencias'><span class='fas fa-download' ></span></a>");
 
                 array.add(item);
                 //datos +=rs.getInt(1)+" "+rs.getString(2);
