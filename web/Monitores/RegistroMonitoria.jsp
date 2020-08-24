@@ -69,7 +69,7 @@
          <i class="fas fa-users fa-2x fa-lg" style="float:left;"> </i> <h3 style="margin-left: 1.5em;">Registro de Tutorias</h3> 
         </div>
         <div class="card-body">
-            <form action="../guardarResultados?btnGuardar=guardar" method="POST" enctype="multipart/form-data" class="form-horizontal" >
+            <form action="../guardarResultados?btnGuardar=guardar" method="POST" enctype="multipart/form-data"  class="form-horizontal" >
             <hr>          
             <div class="row">
                 <div class="col-4">

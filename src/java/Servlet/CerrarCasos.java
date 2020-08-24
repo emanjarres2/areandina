@@ -35,7 +35,7 @@ public class CerrarCasos extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-          int caso = Integer.parseInt(request.getParameter("caso"));
+         int caso = Integer.parseInt(request.getParameter("caso"));
           Connection con =null;
         Conexion cn = new Conexion();
         PreparedStatement st = null;
@@ -46,7 +46,8 @@ public class CerrarCasos extends HttpServlet {
             con=cn.getConexion();
             st = (PreparedStatement) con.prepareStatement(consulta);
             st.executeUpdate();
-            response.sendRedirect("OficinaOPE/ModificarTutorias.jsp");
+            response.sendRedirect("OficinaOPE/ModificarMonitorias.jsp");
+            
 
             } catch (SQLException e) {
                     out.print("Error 3: " + e);
@@ -59,8 +60,7 @@ public class CerrarCasos extends HttpServlet {
                     out.print("Error 4: " + e);
                 }
             }
-            
-        
+          
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

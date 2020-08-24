@@ -62,18 +62,14 @@ public class GestionesTutorias extends Conexion {
         PreparedStatement pst = null;
         ResultSet rs = null;
         int resultado = 0;
-        
             try {
-                String consulta = "INSERT INTO resultado (fecha, asignatura, observaciones, nombre, ruta) VALUES(?,?,?,?,?,?)";
+                String consulta = "INSERT INTO resultado (fecha, asignatura, observa, nombre, ruta) VALUES(?,?,?,?,?)";
                 pst = (PreparedStatement) getConexion().prepareStatement(consulta);
-                                
-                pst.setInt(1, r.getId());
-                pst.setDate(2, r.getFecha());
-                pst.setInt(3, r.getAsignatura());
-                pst.setString(4, r.getObservaciones());
-                pst.setString(5, r.getNombre());
-                pst.setString(6, r.getRuta());
-                
+                pst.setDate(1, r.getFecha());
+                pst.setInt(2, r.getAsignatura());
+                pst.setString(3, r.getObservaciones());
+                pst.setString(4, r.getNombre());
+                pst.setString(5, r.getRuta());
                 pst.executeUpdate();                
 
             } catch (SQLException e) {
@@ -99,11 +95,9 @@ public class GestionesTutorias extends Conexion {
         PreparedStatement pst = null;
         ResultSet rs = null;
         int resultado = 0;
-        
             try {
                 String consulta = "INSERT INTO resultado (Id_tutoria, remision, fecha, asignatura, observa, nombre, ruta, Id_alumno) VALUES(?,?,?,?,?,?,?,?)";
                 pst = (PreparedStatement) getConexion().prepareStatement(consulta);
-        
                 pst.setInt(1, r.getIdTutoria());
                 pst.setInt(2, r.getRemision());
                 pst.setDate(3, r.getFecha());
@@ -112,9 +106,8 @@ public class GestionesTutorias extends Conexion {
                 pst.setString(6, r.getNombre());
                 pst.setString(7, r.getRuta());
                 pst.setString(8, r.getIdEstudiante());
-                
                 pst.executeUpdate();                
-
+                //System.out.print(r);
             } catch (SQLException e) {
                 System.out.print("Error: " + e);                
             } finally {
@@ -141,10 +134,9 @@ public class GestionesTutorias extends Conexion {
         ResultSet rs;
                
         try {
-            String consulta = "SELECT tutorias.Id_tutorias, estudiantes.Name_estudiantes, factor_asociado.Name_factor, usuarios.Name_users, tutorias.observaciones, resultado.observaciones, resultado.nombre, resultado.ruta FROM tutorias, estudiantes, factor_asociado, usuarios, resultado WHERE tutorias.Id_estudiante=estudiantes.Documento AND tutorias.Id_factor=factor_asociado.Id_factor AND tutorias.Id_tutor=usuarios.Id_usuarios AND resultado.Id_resultado=tutorias.Id_tutorias;";
+            String consulta = "SELECT tutorias.Id_tutorias, estudiantes.Name_estudiantes, factor_asociado.Name_factor, usuarios.Name_users, tutorias.observaciones, resultado.observa, resultado.nombre, resultado.ruta FROM tutorias, estudiantes, factor_asociado, usuarios, resultado WHERE tutorias.Id_estudiante=estudiantes.Documento AND tutorias.Id_factor=factor_asociado.Id_factor AND tutorias.Id_tutor=usuarios.Id_usuarios AND resultado.Id_resultado=tutorias.Id_tutorias;";
             pst =(PreparedStatement) getConexion().prepareStatement(consulta);
             rs = pst.executeQuery();
-            
             while(rs.next()){
                 tutorias.add(new ReporteResultado(
                         rs.getInt("Id_tutorias"),
@@ -152,7 +144,7 @@ public class GestionesTutorias extends Conexion {
                         rs.getString("Name_factor"),
                         rs.getString("Name_users"),
                         rs.getString("obervaciones"),
-                        rs.getString("observaciones"),
+                        rs.getString("observa"),
                         rs.getString("nombre"),   
                         rs.getString("ruta")                        
                 ));

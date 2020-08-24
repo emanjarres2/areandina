@@ -65,7 +65,7 @@
 <%-- Cuerpo de la página --%>
             <div class="card-body">
                 <div class="card text-center">
-                    <h1>Editar Datos de Usuarios Registrados</h1>
+                    <h1>Editar Datos de Monitores Registrados</h1>
                 </div> 
                                   
                 </div>
@@ -234,11 +234,7 @@
         </script>   
           
         <script src="../public/js/bootstrap.min.js" type="text/javascript"></script>
-        <script>
-           $(document).ready(function(){
-              $('#tblusuarios').load('TablasOficinaOpe/tblConsultarUsuarios.jsp');
-           });
-       </script>
+       
 <%-- Fin del píe de la página --%>  
     </body>
 </html>

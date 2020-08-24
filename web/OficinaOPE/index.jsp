@@ -55,8 +55,8 @@
                                         Editar 
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="ModificarUsuarios.jsp">Monitores</a>
-                                        <a class="dropdown-item" href="ModificarMonitorias.jsp">Monitoria</a>
+                                        <a class="dropdown-item" href="ModificarUsuarios.jsp">Editar Monitores</a>
+                                        <a class="dropdown-item" href="ModificarMonitorias.jsp">Remision de Monitoria</a>
                                         <a class="dropdown-item" href="ActualizarPassword.jsp">Cambiar Clave</a>
                                     </div>
                                 </li>

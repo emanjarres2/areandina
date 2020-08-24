@@ -41,6 +41,7 @@ public class _GuardarResultados extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();        
         
 //        String estudiante = request.getParameter("estudiante");
@@ -60,12 +61,10 @@ public class _GuardarResultados extends HttpServlet {
         
         String accion = request.getParameter("btnGuardar");
         SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
-        String ruta = "C:\\Users\\manjarres\\Documents\\areandina\\web\\evidencias\\";
+        String ruta = "C:\\Users\\emanjarres\\Documents\\NetBeansProjects\\areandina\\web\\evidencias\\";
         Resultado r = new Resultado();
         GestionesTutorias gt = new GestionesTutorias();
-        
         //out.print(accion);
-        
         switch (accion){               
             case "guardar":
                 ArrayList<String> lista = new ArrayList<>();
@@ -86,14 +85,14 @@ public class _GuardarResultados extends HttpServlet {
                         }
                     }
                     
-                    r.setIdTutoria(Integer.parseInt(lista.get(0)));
-                    r.setRemision(Integer.parseInt(lista.get(1)));                    
-                    r.setFecha(Date.valueOf(lista.get(2)));                    
-                    r.setAsignatura(Integer.parseInt(lista.get(3)));                    
-                    r.setObservaciones(lista.get(4));
-                    r.setNombre(lista.get(5)); 
-                    r.setIdEstudiante(lista.get(6));
-                    
+                    r.setIdTutoria(Integer.parseInt(lista.get(1)));
+                    r.setRemision(Integer.parseInt(lista.get(2)));                    
+                    r.setFecha(Date.valueOf(lista.get(3)));                    
+                    r.setAsignatura(Integer.parseInt(lista.get(4)));                    
+                    r.setObservaciones(lista.get(5));
+                    r.setNombre(lista.get(6)); 
+                    r.setRuta(lista.get(7));
+                    r.setIdEstudiante(lista.get(8));
                     gt.repotarTutorias(r);
                     
                 } catch (Exception e) {

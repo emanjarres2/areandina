@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href="../evidencias/prueba.pdf" download>evidencia</a>
+       <a href="../evidencias/prueba.pdf" download>evidencia</a>
     </body>
 </html>

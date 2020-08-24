@@ -42,7 +42,7 @@ public class subirachivo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
        PrintWriter out = response.getWriter();
             /* TODO output your page here. You may use following sample code. */
-       String url="C:\\Users\\manjarres\\Documents\\areandina\\web\\evidencias";
+       String url="C:\\Users\\emanjarres\\Documents\\NetBeansProjects\\areandina\\web\\evidencias\\";
        DiskFileItemFactory factory= new DiskFileItemFactory();
        factory.setSizeThreshold(1024);
        factory.setRepository(new File(url));

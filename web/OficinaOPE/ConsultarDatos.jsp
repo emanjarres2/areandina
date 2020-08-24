@@ -25,6 +25,13 @@
         <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
         <title>SIGMAA |Resumen de Datos Generado</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.3/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.3/js/buttons.bootstrap4.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.3/js/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.3/js/buttons.print.min.js"></script>
           
     </head>
     <body>
@@ -86,7 +93,11 @@
                                 <tr>
                                     <th>Monitores de aula</th>
                                     <th class="text-center"><%= gl.cantMonitorAula() %></th>
-                                </tr>    
+                                </tr>
+                                <tr>
+                                    <th>Monitores Virtuales</th>
+                                    <th class="text-center"><%= gl.cantMonitorVirtual()%></th>
+                                </tr>
                                 <tr>
                                     <th>Tutorias registradas</th>
                                     <th class="text-center"><%= gl.cantTutorias() %></th>
@@ -127,7 +138,7 @@
             $(document).ready(function() {
                 
                 $('#tablaTutorias').DataTable(
-             
+                        
                 );
               
                 //$.fn.dataTable.ext.errMode = 'throw';

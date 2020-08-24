@@ -46,7 +46,7 @@ public class ConsultaResultados extends HttpServlet {
         String datos = "";
         
         try {
-            String sql = "select t.Id_tutorias,e.Name_Estudiantes,s.nombre,f.Name_factor,u.Name_users, t.observaciones,r.observa,r.ruta from tutorias t inner join estudiantes e on t.Id_estudiante=e.Documento inner join semestre s on t.semestre=s.Id_semestre inner join factor_asociado f on t.Id_factor=f.Id_factor inner join resultado r on t.Id_tutorias=r.Id_tutoria inner join usuarios u on t.Id_tutor=u.Id_usuarios where t.estado='abierto';";            
+            String sql = "select t.Id_tutorias,e.Name_Estudiantes,e.Semestre,f.Name_factor,u.Name_users,t.observaciones,r.observa,t.estado,r.ruta from tutorias t inner join estudiantes e on t.Id_estudiante=e.Documento inner join factor_asociado f on t.Id_factor=f.Id_factor inner join usuarios u on t.Id_tutor=u.Id_usuarios inner join resultado r on r.Id_resultado=t.Id_tutorias inner join Semestre s on e.Semestre=s.Id_semestre";            
             con = cn.getConexion();
             st = con.createStatement();
             rs = st.executeQuery(sql);
@@ -56,12 +56,13 @@ public class ConsultaResultados extends HttpServlet {
                 JsonObject item = new JsonObject();
                 item.addProperty("Id_tutorias", rs.getInt("Id_tutorias"));                
                 item.addProperty("estudiante", rs.getString("Name_Estudiantes"));
-                item.addProperty("semestre", rs.getString("nombre"));
+                item.addProperty("semestre", rs.getString("Semestre"));
                 item.addProperty("factor", rs.getString("Name_factor"));
                 item.addProperty("monitor", rs.getString("Name_users"));
                 item.addProperty("obsOPE", rs.getString("observaciones"));
                 item.addProperty("obsMON", rs.getString("observa"));
-                item.addProperty("ruta", "<a href='../../"+rs.getString("ruta")+"' class='btn-xs btn btn-success' target='_blank' style=' margin-left:50px; ' title='Evidencias' download='evidencias'><span class='fas fa-download' ></span></a>");
+                item.addProperty("estado", rs.getString("estado"));
+                item.addProperty("ruta", "<a href='../"+rs.getString("ruta")+"' class='btn-xs btn btn-success' target='_blank' style=' margin-left:30px; ' title='Evidencias' download><span class='fas fa-download' ></span></a>");
 
                 array.add(item);
                 //datos +=rs.getInt(1)+" "+rs.getString(2);

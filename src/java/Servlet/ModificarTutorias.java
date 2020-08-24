@@ -56,7 +56,7 @@ public class ModificarTutorias extends HttpServlet {
          * para almacenar los archivos.
          * En el directorio raiz del proyecto debe estar la carpta evidencias.
          */
-        String ruta = "C:\\Users\\manjarres\\Documents\\areandina\\web\\evidencias\\";
+        String ruta = "C:\\Users\\emanjarres\\Documents\\NetBeansProjects\\areandina\\web\\evidencias\\";
         
         switch (accion){               
             case "actualizar":
@@ -75,7 +75,6 @@ public class ModificarTutorias extends HttpServlet {
                             lista.add(fileitem.getString());
                         }
                     }
-                    r.setId(Integer.parseInt(lista.get(0)));
                     r.setFecha(Date.valueOf(lista.get(1)));
                     r.setAsignatura(Integer.parseInt(lista.get(2)));
                     r.setObservaciones(lista.get(3));

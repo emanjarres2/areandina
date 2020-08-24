@@ -121,10 +121,6 @@
         <servlet-class>Servlet.ModificarMonitores</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CerrarCasos</servlet-name>
-        <servlet-class>Servlet.CerrarCasos</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ActualizarContrasena</servlet-name>
         <servlet-class>Servlet.ActualizarContrasena</servlet-class>
     </servlet>
@@ -175,6 +171,10 @@
     <servlet>
         <servlet-name>ConsultaResultados</servlet-name>
         <servlet-class>Servlet.ConsultaResultados</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CerrarCasos</servlet-name>
+        <servlet-class>Servlet.CerrarCasos</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -297,10 +297,6 @@
         <url-pattern>/ModificarMonitores</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CerrarCasos</servlet-name>
-        <url-pattern>/CerrarCasos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ActualizarContrasena</servlet-name>
         <url-pattern>/ActualizarContrasena</url-pattern>
     </servlet-mapping>
@@ -351,6 +347,10 @@
     <servlet-mapping>
         <servlet-name>ConsultaResultados</servlet-name>
         <url-pattern>/ConsultaResultados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CerrarCasos</servlet-name>
+        <url-pattern>/CerrarCasos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

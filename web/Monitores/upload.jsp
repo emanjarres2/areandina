@@ -12,7 +12,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-    String url="C:\\Users\\manjarres\\Documents\\areandina\\web\\evidencias";
+    String url="C:\\Users\\emanjarres\\Documents\\NetBeansProjects\\areandina\\web\\evidencias";
        DiskFileItemFactory factory= new DiskFileItemFactory();
        factory.setSizeThreshold(1024);
        factory.setRepository(new File(url));

@@ -45,6 +45,7 @@
                       { "data": "monitor" },
                       { "data": "obsOPE" },
                       { "data": "obsMON" },
+                      { "data": "estado" },
                       { "data": "ruta" }                                 
                       
                     ]
@@ -94,7 +95,7 @@
 <%-- Cuerpo de la página --%>
             <div class="card-body">
                 <div class="card text-center">
-                    <h1>Revisión de Monitorias</h1>
+                    <h1>Remisiones  de Monitoria</h1>
                 </div> 
                                     
                 </div>  
@@ -109,7 +110,8 @@
                                     <th>Factor</th>
                                     <th>Monitor</th>                              
                                     <th>Obs. OPE</th>
-                                    <th>Obs. Monitor</th>  
+                                    <th>Obs. Monitor</th>
+                                    <th>Estado</th>
                                     <th>Evidencias</th>
                                 </tr>
                             </thead>

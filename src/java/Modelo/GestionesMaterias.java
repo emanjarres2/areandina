@@ -144,9 +144,9 @@ public class GestionesMaterias extends Conexion {
         ResultSet rs ;
         
         try {
-            String consulta = "SELECT materia.Id_clase, materia.Nombre_clase "
-                    + "FROM materia, programa, estudiantes, tutorias "
-                    + "WHERE materia.Id_programa=programa.Id_program AND estudiantes.Id_program=programa.Id_program AND estudiantes.Documento=tutorias.Id_estudiante AND tutorias.Id_tutorias="+x;
+            String consulta = "SELECT materia.Id_clase, materia.Nombre_clase \n" +
+"                    FROM materia, programa, estudiantes, tutorias \n" +
+"                    WHERE materia.Id_programa=programa.Id_program AND estudiantes.Id_program=programa.Id_program AND estudiantes.Documento=tutorias.Id_estudiante AND tutorias.Id_tutorias="+x;
             pst = (PreparedStatement) getConexion().prepareStatement(consulta);
             rs = pst.executeQuery();
             
