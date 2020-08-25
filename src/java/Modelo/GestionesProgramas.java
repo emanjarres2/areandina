@@ -124,8 +124,8 @@ public class GestionesProgramas extends Conexion
             
             while(rs.next()){
                 programas.add(new ProgramaEstudiantes(
-                        rs.getInt("programa.Id_program"),
-                        rs.getString("programa.Name_program")
+                        rs.getInt("Id_program"),
+                        rs.getString("Name_program")
                 ));
             }            
         } catch (SQLException e) {

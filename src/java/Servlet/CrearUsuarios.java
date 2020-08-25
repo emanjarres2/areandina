@@ -107,11 +107,9 @@ public class CrearUsuarios extends HttpServlet {
                 String consultax = "insert into usuarios (Id_usuarios, Name_users, Mail_users, Phone_users, Type_users, Id_campus, Id_faculty, Id_program, Semestre, Modalidad) values(?,?,?,?,?,?,?,?,?,?)";
                 con=cn.getConexion();
                 st=(PreparedStatement) con.prepareStatement(consultax);
-
                 st.setString(1, identificacion);
                 st.setString(2, nombres);
                 st.setString(3, mail);
-                //st.setString(4, pass);
                 st.setString(4, telefono);
                 st.setString(5, tipo);
                 st.setString(6, id_campus);
@@ -121,22 +119,9 @@ public class CrearUsuarios extends HttpServlet {
                 st.setString(10, modalidad);
                 
                 if (st.executeUpdate() == 1) {
-                        out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
-			out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
-			out.println("<script>");
-			out.println("$(document).ready(function(){");
-			out.println("swal ( 'WELCOME' ,  'successfull !' ,  'success' );");
-			out.println("});");
-			out.println("</script>");
-                        response.sendRedirect("OficinaOPE/index.jsp");
+                       
+                        response.sendRedirect("OficinaOPE/NuevoMonitor.jsp");
                 } else {
-                        out.println("<script src='Sweet_JS/sweetalert2.js'></script>");
-			out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
-			out.println("<script>");
-			out.println("$(document).ready(function(){");
-			out.println("swal ( 'incorrect id or password !' ,  ' ' ,  'error' );");
-			out.println("});");
-			out.println("</script>");
                     response.sendRedirect("ups.jsp");
                 }
 
@@ -152,19 +137,14 @@ public class CrearUsuarios extends HttpServlet {
                 }
             }
         }
-        
         if(dos.equals(btn2)){
             try {
-                
                 String consultax = "insert into usuarios (Id_usuarios, Name_users, Mail_users, Phone_users, Type_users, Id_campus, Id_faculty, Id_program, Semestre, Modalidad) values(?,?,?,?,?,?,?,?,?,?)";
                  con=cn.getConexion();
                 st=(PreparedStatement) con.prepareStatement(consultax);               
-                       
-
-                 st.setString(1, identificacion);
+                st.setString(1, identificacion);
                 st.setString(2, nombres);
                 st.setString(3, mail);
-                //st.setString(4, pass);
                 st.setString(4, telefono);
                 st.setString(5, tipo);
                 st.setString(6, id_campus);
@@ -174,34 +154,14 @@ public class CrearUsuarios extends HttpServlet {
                 st.setString(10, modalidad);
                             
                 if (st.executeUpdate() == 1) {
-                        //response.setContentType("text/html");
-                        //out.println("<script type=\"text/javascript\">");
-			//out.println("$(document).ready(function(){");
-			//out.println("swal ( 'Registro Exitoso' ,  'Agregado nuevo Usuario !' ,  'success' );");
-			//out.println("});"); 
-                       // out.println("</script>");
-                       // RequestDispatcher rd = request.getRequestDispatcher("administrador/CrearUsuarios.jsp");
-                        //rd.include(request, response);
-                        out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
-			out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
-			out.println("<script>");
-			out.println("$(document).ready(function(){");
-			out.println("swal ( 'Registro de Usuarios' ,  'Usuario registrado exitosamente !' ,  'success' );");
-			out.println("});");
-			out.println("</script>");
-                        //response.sendRedirect("OficinaOPE/index.jsp");
-                        //response.sendRedirect("administrador/CrearUsuarios.jsp");
+                        
+                       
+        
                         response.sendRedirect("administrador/CrearUsuarios.jsp");
 			
                         
                 } else {
-                    out.println("<script src='Sweet_JS/sweetalert2.js'></script>");
-			out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
-			out.println("<script>");
-			out.println("$(document).ready(function(){");
-			out.println("swal ( 'incorrect id or password !' ,  ' ' ,  'error' );");
-			out.println("});");
-			out.println("</script>");
+                   
                     response.sendRedirect("ups.jsp");
                 }
 

@@ -77,7 +77,7 @@
                             </div>
                             <div class="col-2">
                                 <div class="form-group">
-                                    <label for="validationCustom01">Fecha de la tutoria</label><br>
+                                    <label for="validationCustom01">Fecha de la Monitoria</label><br>
                                     <input type="date" class="form-control" id="fecha" name="fecha" required > 
                                 </div>
                             </div>

@@ -62,7 +62,9 @@ public class ModificarTutorias extends HttpServlet {
             case "actualizar":
                 ArrayList<String> lista = new ArrayList<>();
                 try {
-                    FileItemFactory file = new DiskFileItemFactory();
+                    DiskFileItemFactory file = new DiskFileItemFactory();
+                    file.setSizeThreshold(1024);
+                    file.setRepository(new File(ruta));
                     ServletFileUpload fileUpload = new ServletFileUpload(file);
                     List items = fileUpload.parseRequest(request);
                     for (int i = 0; i < items.size(); i++) {

@@ -4,7 +4,7 @@
     Author     : emanjarres
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@page  session="true"%>
 <%
     HttpSession objetoSession = request.getSession();
@@ -20,20 +20,19 @@
         <title>SIGMAA | Listado de  Materias Registradas</title>
         <link rel="icon" href="../public/img/favicon.ico">
         
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+        <link href="../public/css/estilos.css" rel="stylesheet" type="text/css"/>
         <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
         <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> 
         <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-        <link href="../public/css/estilos.css" rel="stylesheet" type="text/css"/>
         <script type="text/javascript">
             
             $(document).ready(function() {
                 
                 $('#tablaMaterias').DataTable({
                     
-                    "serverSide": true,
                     "ajax":{
                       "method":"POST",
                       "url":"../ConsultaMaterias",
@@ -58,7 +57,7 @@
         
     </head>
     <body>
-       <%--Inicio del encabezado de la pÃ¡gina --%>  
+       <%--Inicio del encabezado de la página --%>  
     <div class="card-header">
         <div class="container">
             <div class="row">
@@ -84,25 +83,26 @@
                     </nav>
                 </div>
                 <div class="col-sm-3">
-                    <h6>Inicio de sesiÃ³n como:</h6>
+                    <h6>Inicio de sesión como:</h6>
                     <% out.print(usuario); %>
                 </div>
             </div>                    
         </div> 
     </div>
-<%--Fin del encabezado de la pÃ¡gina --%>  
+<%--Fin del encabezado de la página --%>  
 
-<%-- Cuerpo de la pÃ¡gina --%>
+<%-- Cuerpo de la página --%>
             <div class="card-body">
                 <div class="card text-center">
                     <h1>Listado de  Materias Registradas</h1>
                 </div> 
+            </div>
                  <div class="container-fluid" style="margin-top:4%;">
                     <div class="table-responsive">
                         <table id="tablaMaterias" class="table table-bordered table-striped table-hover" style="width:100%">
                             <thead class="text-center" >
                                 <tr>
-                                    <th>NÂ°</th>
+                                    <th>N°</th>
                                     <th>Materia</th>
                                     <th>Programa</th>                                                                        
                                     <th>Modalidad</th>                                                                        
@@ -116,17 +116,17 @@
                         </table>
                     </div>                    
                 </div>             
-<%-- Fin del cuerpo de la pÃ¡gina --%>  
+<%-- Fin del cuerpo de la página --%>  
             
-<%-- PÃ­e de la pÃ¡gina --%>            
+<%-- Píe de la página --%>            
 <div class="card text-center">    
             <div class="card-footer text-muted">
-                <h3>Sistema de InformaciÃ³n y GestiÃ³n de Monitoria AcadÃ©mica Andina - SIGMAA</h3>
+                <h3>Sistema de Información y Gestión de Monitoria Académica Andina - SIGMAA</h3>
             </div>
         </div>
  
       
-<%-- Fin del pÃ­e de la pÃ¡gina --%>  
+<%-- Fin del píe de la página --%>  
  
     </body>
 </html>

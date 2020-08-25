@@ -45,7 +45,7 @@
                                         Nuevo
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="../OficinaOPE/CrearUsuarios.jsp">Nuevo Monitor</a>                                      
+                                        <a class="dropdown-item" href="../OficinaOPE/NuevoMonitor.jsp">Nuevo Monitor</a>                                      
                                         <a class="dropdown-item" href="../OficinaOPE/CrearTutorias.jsp">Remision de Monitorias</a>   
                                         
                                     </div>
@@ -93,7 +93,7 @@
                             </a>   
                         </div>
                         <div class="col-lg-3" >
-                            <a class="nav-link" href="ConsultarTutorias.jsp">
+                            <a class="nav-link" href="ConsultarMonitoria.jsp">
                                 <img src="../public/img/Monitorias.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>
                         </div>

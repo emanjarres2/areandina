@@ -12,11 +12,10 @@
 <%@page import="Modelo.GestionesProgramas"%>
 <%@page import="Controller.MuestraCampus"%>
 <%@page import="Controller.MuestraListas"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page  session="true"%>
 <%
     HttpSession objetoSession = request.getSession(false);
-    String usuario = (String)objetoSession.getAttribute("Usuario");
+    String usuario = (String)objetoSession.getAttribute("UsuarioAutenticado");
     if(usuario.equals(" ")){
         response.sendRedirect("../index.jsp");
     }  
@@ -30,7 +29,7 @@
         <title>SIGMAA | Gestion de Registro de Monitor</title>
     </head>
     <body>
-        <%--Inicio del encabezado de la pÃ¡gina --%>  
+        <%--Inicio del encabezado de la página --%>  
     <div class="card-header">
         <div class="container">
             <div class="row">
@@ -59,21 +58,21 @@
                     </nav>
                 </div>
                 <div class="col-sm-3">
-                    <h6>Inicio de sesiÃ³n como:</h6>
+                    <h6>Inicio de sesión como:</h6>
                     <% out.print(usuario); %>
                 </div>
             </div>                    
         </div> 
     </div>
-<%--Fin del encabezado de la pÃ¡gina --%>  
+<%--Fin del encabezado de la página --%>  
 
-<%-- Cuerpo de la pÃ¡gina --%>
+<%-- Cuerpo de la página --%>
     <div class="card-body" id="body_administrador">
         <div class="card text-center">
             <h1>Crear Usuarios</h1>
         </div>       
         <div class="container">            
-            <form action="../CrearMonitores?btnformularioCrear=2" method="post" id="formularioMonitores" name="formularioMonitores" novalidate>
+            <form action="../CrearMonitores" method="post" id="formularioMonitores" name="formularioMonitores" novalidate>
                 <div class="row text-center">
                     <div class="col-2">
                         <div class="form-group">
@@ -89,7 +88,7 @@
                     </div>
                     <div class="col-5">
                         <div class="form-group">
-                            <label for="validationCustom04">Correo electrÃ³nico</label>
+                            <label for="validationCustom04">Correo electrónico</label>
                             <input type="email" class="form-control" id="mail" name="mail" required placeholder="email@areandina.edu.co">
                         </div>
                     </div>                        
@@ -97,7 +96,7 @@
                 <div class="row text-center">
                     <div class="col-3">
                         <div class="form-group">
-                            <label for="validationCustom04">NÃºmero de contacto</label>
+                            <label for="validationCustom04">Número de contacto</label>
                             <input type="tel" size="10" class="form-control" id="telefono" name="telefono" required placeholder="Ej: 3201111111">
                         </div>    
                     </div>
@@ -158,21 +157,21 @@
                     </div>    
                 </div>            
                 <div class="d-flex align-items-end flex-column bd-highlight mb-3">                            
-                    <button class="btn btn-primary" type="submit" id="btnformularioCrear" name="btnformularioCrear">Guardar</button>
+                    <button class="btn btn-primary" type="submit" id="btnformularioCrearOPE" name="btnformularioCrearOPE">Guardar</button>
                 </div>
             </form>
         </div>       
         
     </div>
-<%-- Fin del cuerpo de la pÃ¡gina --%>  
+<%-- Fin del cuerpo de la página --%>  
             
-<%-- PÃ­e de la pÃ¡gina --%>            
+<%-- Píe de la página --%>            
         <div class="card text-center">    
             <div class="card-footer text-muted">
-                <h3>Sistema de InformaciÃ³n y GestiÃ³n de Monitoria AcadÃ©mica Andina - SIGMAA</h3>
+                <h3>Sistema de Información y Gestión de Monitoria Académica Andina - SIGMAA</h3>
             </div>
         </div>
-<%-- Fin del pÃ­e de la pÃ¡gina --%>  
+<%-- Fin del píe de la página --%>  
 <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>

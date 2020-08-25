@@ -74,7 +74,7 @@ public class CrearEstudiantes extends HttpServlet {
             pst.setString(10, modalidad);            
             
             if(pst.executeUpdate() ==1){
-                response.sendRedirect("OficinaOPE/CrearEstudiantes.jsp");
+                response.sendRedirect("OficinaOPE/NuevoMonitor.jsp");
                                 
             }else {
                 response.sendRedirect("ups.jsp");

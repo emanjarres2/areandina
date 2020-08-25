@@ -20,7 +20,7 @@ public class GestionesFacultades extends Conexion {
         PreparedStatement pst = null;
         
         try {
-            String consulta = "INSERT INTO facultad (Name, Id_campus) values(?,?)";
+            String consulta = "INSERT INTO facultad (Name_faculty, Id_campus) values(?,?)";
             pst = (PreparedStatement) getConexion().prepareStatement(consulta);
             
             pst.setString(1, nombre);

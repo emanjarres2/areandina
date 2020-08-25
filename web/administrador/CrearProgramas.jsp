@@ -5,7 +5,6 @@
 --%>
 <%@page import="Controller.MuestraCampus"%>
 <%@page import="Controller.MuestraCampus"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page  session="true"%>
 <%
     HttpSession objetoSession = request.getSession();
@@ -26,7 +25,7 @@
          
     </head>
     <body>
-       <%--Inicio del encabezado de la pÃ¡gina --%>  
+       <%--Inicio del encabezado de la página --%>  
     <div class="card-header">
         <div class="container">
             <div class="row">
@@ -55,18 +54,18 @@
                     </nav>
                 </div>
                 <div class="col-sm-3">
-                    <h6>Inicio de sesiÃ³n como:</h6>
+                    <h6>Inicio de sesión como:</h6>
                     <% out.print(usuario); %>
                 </div>
             </div>                    
         </div> 
     </div>
-<%--Fin del encabezado de la pÃ¡gina --%>  
+<%--Fin del encabezado de la página --%>  
 
-<%-- Cuerpo de la pÃ¡gina --%>
+<%-- Cuerpo de la página --%>
     <div class="card-body" id="body_administrador">
         <div class="card text-center">
-            <h1>Crear programas acadÃ©micos</h1>
+            <h1>Crear programas académicos</h1>
         </div>       
         
         <div class="container" style="margin-top: 2%;">
@@ -109,15 +108,15 @@
         </div>       
         
     </div>
-<%-- Fin del cuerpo de la pÃ¡gina --%>  
+<%-- Fin del cuerpo de la página --%>  
             
-<%-- PÃ­e de la pÃ¡gina --%>            
+<%-- Píe de la página --%>            
         <div class="card text-center" style="margin-top: 14%;">    
             <div class="card-footer text-muted">
-                <h3>Sistema de InformaciÃ³n y GestiÃ³n de Monitoria AcadÃ©mica Andina - SIGMAA</h3>
+                <h3>Sistema de Información y Gestión de Monitoria Académica Andina - SIGMAA</h3>
             </div>
         </div>
-<%-- Fin del pÃ­e de la pÃ¡gina --%> 
+<%-- Fin del píe de la página --%> 
 <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> 
  <script src="../public/js/bootstrap.min.js" type="text/javascript"></script
@@ -180,7 +179,7 @@
             }
          
             if(confirmacion){
-            alert('el programa fuÃ© creada con exito.' + idcampus + ", " + idfacultad + ", " + nombreprograma + ", " + nombremodalidad);
+            alert('el programa fué creada con exito.' + idcampus + ", " + idfacultad + ", " + nombreprograma + ", " + nombremodalidad);
             
             document.getElementById('formularioProgramas').submit();             
                 }else{

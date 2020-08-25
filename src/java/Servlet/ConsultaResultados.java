@@ -46,7 +46,7 @@ public class ConsultaResultados extends HttpServlet {
         String datos = "";
         
         try {
-            String sql = "select t.Id_tutorias,e.Name_Estudiantes,e.Semestre,f.Name_factor,u.Name_users,t.observaciones,r.observa,t.estado,r.ruta from tutorias t inner join estudiantes e on t.Id_estudiante=e.Documento inner join factor_asociado f on t.Id_factor=f.Id_factor inner join usuarios u on t.Id_tutor=u.Id_usuarios inner join resultado r on r.Id_resultado=t.Id_tutorias inner join Semestre s on e.Semestre=s.Id_semestre";            
+            String sql = "select r.Id_tutoria,e.Name_Estudiantes,us.Name_users,t.observaciones,r.observa,s.nombre,f.Name_factor,t.estado,r.ruta from resultado r inner join tutorias t on t.Id_tutorias=r.Id_tutoria inner join estudiantes e on e.Documento=r.Id_alumno inner join semestre s on e.Semestre=s.Id_semestre inner join usuarios u on t.Id_tutor=u.Id_usuarios inner join factor_asociado f on t.Id_factor=f.Id_factor inner join usuarios us on t.Id_tutor=us.Id_usuarios where t.estado='abierto';";            
             con = cn.getConexion();
             st = con.createStatement();
             rs = st.executeQuery(sql);
@@ -54,9 +54,9 @@ public class ConsultaResultados extends HttpServlet {
             JsonArray array = new JsonArray();
             while (rs.next()) {
                 JsonObject item = new JsonObject();
-                item.addProperty("Id_tutorias", rs.getInt("Id_tutorias"));                
+                item.addProperty("Id_tutoria", rs.getInt("Id_tutoria"));                
                 item.addProperty("estudiante", rs.getString("Name_Estudiantes"));
-                item.addProperty("semestre", rs.getString("Semestre"));
+                item.addProperty("semestre", rs.getString("nombre"));
                 item.addProperty("factor", rs.getString("Name_factor"));
                 item.addProperty("monitor", rs.getString("Name_users"));
                 item.addProperty("obsOPE", rs.getString("observaciones"));

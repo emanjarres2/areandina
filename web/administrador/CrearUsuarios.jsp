@@ -6,7 +6,6 @@
 
 <%@page import="Controller.MuestraListas"%>
 <%@page import="Controller.MuestraCampus"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page  session="true"%>
 <%
     HttpSession objetoSession = request.getSession();
@@ -56,15 +55,15 @@
                     </nav>
                 </div>
                 <div class="col-sm-3">
-                    <h6>Inicio de sesiÃ³n como:</h6>
+                    <h6>Inicio de sesión como:</h6>
                     <% out.print(usuario); %>  
                 </div>
             </div>                    
         </div> 
     </div>
-<%--Fin del encabezado de la pÃ¡gina --%>  
+<%--Fin del encabezado de la página --%>  
 
-<%-- Cuerpo de la pÃ¡gina --%>
+<%-- Cuerpo de la página --%>
 <div class="container" style="margin-top:1%;">
     <div class="card" >
         <div class=" card-header mb-3  text-center text-white " style="background:#77C043;" > <i class="fas  fa-users fa-2x fa-lg" style="float:left;"> </i> <h2 style="margin-left: 1.5em;">Registro de Usuario</h2>  </div>
@@ -85,7 +84,7 @@
                     </div>
                     <div class="col-5">
                         <div class="form-group">
-                            <label for="validationCustom04">Correo electrÃ³nico</label>
+                            <label for="validationCustom04">Correo electrónico</label>
                             <input type="email" class="form-control" id="mail" name="mail" required placeholder="email@areandina.edu.co">
                         </div>
                     </div>
@@ -100,7 +99,7 @@
                     </div>
                     <div class="col-3">
                         <div class="form-group">
-                            <label for="validationCustom04">NÃºmero de contacto</label>
+                            <label for="validationCustom04">Número de contacto</label>
                             <input type="tel" size="10" class="form-control" id="telefono" name="telefono" required placeholder="Ej: 3201111111">
                         </div>    
                     </div>
@@ -177,15 +176,15 @@
     </div>
               
   
-<%-- Fin del cuerpo de la pÃ¡gina --%>  
+<%-- Fin del cuerpo de la página --%>  
             
-<%-- PÃ­e de la pÃ¡gina --%>            
+<%-- Píe de la página --%>            
 <div class="card text-center" style="margin-top: 13%;">    
             <div class="card-footer text-muted">
-                <h3>Sistema de InformaciÃ³n y GestiÃ³n de Monitoria AcadÃ©mica Andina - SIGMAA</h3>
+                <h3>Sistema de Información y Gestión de Monitoria Académica Andina - SIGMAA</h3>
             </div>
         </div>
-<%-- Fin del pÃ­e de la pÃ¡gina --%>  
+<%-- Fin del píe de la página --%>  
 <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
@@ -298,9 +297,9 @@
                     'Se ha Agregrado un Usuario',
                     'success'
                 );
-            //alert('La materia fuÃ© creada con exito.' + idcampus + " - " + idfacultad + " - " + idprograma + " - " + idprograma + ", " + nombremateria);
+            //alert('La materia fué creada con exito.' + idcampus + " - " + idfacultad + " - " + idprograma + " - " + idprograma + ", " + nombremateria);
             
-            document.getElementById('formularioMaterias').submit();             
+            document.getElementById('formularioUsuarios').submit();             
                 }else{
                             alert('Por favor diligencie todos los campos');
                         }

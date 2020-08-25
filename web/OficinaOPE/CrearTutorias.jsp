@@ -102,7 +102,7 @@
                             <select class="custom-select" id="programa" name="programa" >
                                 <option disabled selected>Seleccione...</option>
                                 <%  MuestraListas mf = new MuestraListas(); %>
-                                <%= mf.getListaProgramas() %>
+                               
                             </select> 
                         </div>
                     </div>        
@@ -198,7 +198,7 @@
                         $('select[name=monitor] option').remove();
                         var pegados = datos.split(":");
                         
-                        if(datos === ""){
+                        if(datos === ''){
                                 $('select[name=monitor]').append('<option>No hay registros en esta categoria</option>');
                         }else{
                             var vacio = "Seleccione";
@@ -238,7 +238,7 @@
                         $('select[name=programa] option').remove();
                         var pegados = datos.split(":");
                         
-                        if(datos === ""){
+                        if(datos === ''){
                                 $('select[name=programa]').append('<option>El estudiante no esta asociado a un programa</option>');
                         }else{
                             var vacio = "Seleccione";

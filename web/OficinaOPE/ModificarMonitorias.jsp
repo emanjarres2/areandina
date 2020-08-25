@@ -38,7 +38,7 @@
                       "url":"../ConsultaResultados",
                       "dataSrc":"datos"
                     },"columns":[
-                      { "data": "Id_tutorias" },
+                      { "data": "Id_tutoria" },
                       { "data": "estudiante" },
                       { "data": "semestre" },
                       { "data": "factor" },

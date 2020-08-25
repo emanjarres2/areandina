@@ -134,7 +134,7 @@
     </servlet>
     <servlet>
         <servlet-name>ConsultaTutorias</servlet-name>
-        <servlet-class>Servlet.ConsultaTutorias</servlet-class>
+        <servlet-class>Servlet.ConsultaMonitoria</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ConsultarCampus</servlet-name>
@@ -354,7 +354,7 @@
     </servlet-mapping>
     <session-config>
         <session-timeout>
-            10
+            30
         </session-timeout>
     </session-config>
     <dependencies>
