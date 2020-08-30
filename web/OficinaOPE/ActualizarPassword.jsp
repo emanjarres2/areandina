@@ -4,7 +4,6 @@
     Author     : emanjarres
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page  session="true"%>
 <%
     HttpSession objetoSession = request.getSession();
@@ -22,7 +21,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     </head>
     <body>
-      <%--Inicio del encabezado de la pÃ¡gina --%>  
+<%--Inicio del encabezado de la página --%>  
     <div class="card-header">
         <div class="container">
             <div class="row">
@@ -48,34 +47,34 @@
                     </nav>
                 </div>
                 <div class="col-sm-3">
-                    <h6>Inicio de sesiÃ³n como:</h6>
+                    <h6>Inicio de sesión como:</h6>
                     <% out.print(usuario); %>
                 </div>
             </div>                    
         </div> 
     </div>
-<%--Fin del encabezado de la pÃ¡gina --%>  
+<%--Fin del encabezado de la página --%>  
 
-<%-- Cuerpo de la pÃ¡gina --%>
+<%-- Cuerpo de la página --%>
 <form action="../ActualizarContrasena?actualizar=administrativo" method="POST" name="formularioActualizar" id="formularioActualizar"> 
     <div class="card-body">
         <div class="card text-center">
-            <h1>Actualizar ContraseÃ±a</h1>            
+            <h1>Actualizar Contraseña</h1>            
         </div>                
         <div class="container" style="margin-top: 1%;">                    
              <div class="row justify-content-md-center">
                 <div class="col-sm-4">                    
                     <div class="form-group">
-                        <input placeholder="IdentificaciÃ³n" type="text" class="form-control" aria-describedby="emailHelp" id="id" name="id">
+                        <input placeholder="Identificación" type="text" class="form-control" aria-describedby="emailHelp" id="id" name="id">
                     </div>
                     <div class="form-group">
-                        <input placeholder="ContraseÃ±a actual" type="password" class="form-control" id="password" name="password">
+                        <input placeholder="Contraseña actual" type="password" class="form-control" id="password" name="password">
                     </div>
                     <div class="form-group">
-                        <input placeholder="Nueva ContraseÃ±a" type="password" class="form-control" id="nuevoPassword" name="nuevoPassword">
+                        <input placeholder="Nueva Contraseña" type="password" class="form-control" id="nuevoPassword" name="nuevoPassword">
                     </div>
                     <div class="form-group">
-                        <input placeholder="Confirmar ContraseÃ±a" type="password" class="form-control" id="confirmarPassword" name="confirmarPassword">
+                        <input placeholder="Confirmar Contraseña" type="password" class="form-control" id="confirmarPassword" name="confirmarPassword">
                     </div>
                     <button type="submit" id="actualizar" name="actualizar" class="btn btn-primary" onclick="limpiarFormulario()">Actualizar</button>
                 </div>
@@ -83,16 +82,53 @@
         </div>  
     </div>  
 </form>                         
-<%-- Fin del cuerpo de la pÃ¡gina --%>  
+<%-- Fin del cuerpo de la página --%>  
             
-<%-- PÃ­e de la pÃ¡gina --%>            
-        <div class="card-footer text-center" style="margin-top: 15.4%;">    
+<%-- Píe de la página --%>            
+        <div class="card-footer text-center" style="margin-top: 14%;">    
             <div class="card-footer text-muted">
-                <h3>Sistema de InformaciÃ³n y GestiÃ³n de Monitoria AcadÃ©mica Andina - SIGMAA</h3>
+                <h3>Sistema de Información y Gestión de Monitoria Académica Andina - SIGMAA</h3>
             </div>
         </div>
-<%-- Fin del pÃ­e de la pÃ¡gina --%> 
+<%-- Fin del píe de la página --%> 
 <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
  <script src="../public/js/bootstrap.min.js" type="text/javascript"></script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+ <script>
+            window.addEventListener('load', function (){    
+            document.getElementById('actualizar').addEventListener('click', function (){
+            var id =  document.getElementById('id').value;
+            var uno = document.getElementById('password').value;                        
+            var dos = document.getElementById('nuevoPassword').value;                        
+            var tres = document.getElementById('confirmarPassword').value;                        
+            var confirmacion = false;            
+            if(dos===tres){
+                if(id.length > 0 && uno.length > 0 && dos.length > 0 && tres.length > 0 && dos===tres ){
+                    confirmacion = true;
+                } 
+                if(confirmacion){
+                    Swal.fire(
+                    'Clave de Acceso',
+                    'Se ha Actualizado su clave',
+                    'success'
+                );
+                    document.getElementById('formularioActualizar').submit();             
+                }else{alert('Por favor diligencie todos los campos');}
+            }else{
+                alert('Verifica la nueva contraseña');
+            }            
+            });
+            });
+    
+            window.addEventListener('load', function () {
+                document.getElementById("email").reset();
+                document.getElementById("password").reset();
+                document.getElementById("nuevoPassword").reset();
+                document.getElementById("confirmarPassword").reset();
+                
+            });
+            
+            
+        </script>
     </body>
 </html>

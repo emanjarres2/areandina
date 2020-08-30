@@ -57,6 +57,7 @@
                                         Nuevo
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                         <a class="dropdown-item" href="CargaRegistroEstudiantes.jsp">Estudiantes</a>
                                         <a class="dropdown-item" href="CrearCampus.jsp">Campus</a>
                                         <a class="dropdown-item" href="CrearFacultad.jsp">Facultad</a>
                                         <a class="dropdown-item" href="CrearProgramas.jsp">Programa</a>
@@ -117,24 +118,24 @@
                       <div class="col-lg-2">
                  
                             <a class="nav-link" href="ConsultaCampus.jsp">
-                                <img src="../public/img/Campus.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                                <img src="../public/img/Campus.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px" title="Consulta de campus universitario">
                             </a>   
                       </div>
                       <div class="col-lg-2">
                             <a class="nav-link" href="ConsultaFacultades.jsp">
-                                <img src="../public/img/Facultades.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                                <img src="../public/img/Facultades.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px" title="Consulta de Facultades">
                             </a>
                       </div>
                       <div class="col-lg-2">
                             <a class="nav-link" href="ConsultaMaterias.jsp">
-                                <img src="../public/img/Materias.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                                <img src="../public/img/Materias.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px" title="Consulta de Materias">
                             </a>
                       </div>
                     </div>
                     <div class="row justify-content-md-center">
                       <div class="col-lg-2" >
                             <a class="nav-link" href="ConsultaUsuarios.jsp">
-                                <img src="../public/img/Monitores.jpg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                                <img src="../public/img/Monitores.jpg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px" title="Consulta de Usuarios">
                             </a>   
                       </div>
                      
@@ -146,7 +147,7 @@
 <%-- Fin del cuerpo de la página --%>  
             
 <%-- Píe de la página --%>            
-        <div class="card text-center"  style="margin-top:18.69%;">    
+        <div class="card text-center"  style="margin-top:18.19%;">    
             <div class="card-footer text-muted">
                 <h3>Sistema de Información y Gestión de Monitoria Académica Andina - SIGMAA</h3>
             </div>

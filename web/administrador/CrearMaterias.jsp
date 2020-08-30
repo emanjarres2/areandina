@@ -24,7 +24,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SIGMAA |Registro de Materias</title>
+        <title>SIGMAA | Registro de Materias</title>
         <link rel="icon" href="../public/img/favicon.ico">
         <link href="../public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -72,7 +72,7 @@
 <%-- Cuerpo de la página --%>
     <div class="card-body" id="body_administrador">
         <div class="card text-center">
-            <h1>Crear materias</h1>
+            <h1>Registro de Materias</h1>
         </div>       
         
         <div class="container" style="margin-top: 3%;">

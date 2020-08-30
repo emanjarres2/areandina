@@ -61,7 +61,7 @@ public class GestionesEstudiantes extends Conexion{
         String htmlcode = "";       
         GestionesEstudiantes le = new GestionesEstudiantes();        
         for (Estudiante e : le.getEstudiantes()) {
-            htmlcode += "<option value='"+e.getCodigo()+"'>"+e.getNombres()+"</option> ";        
+            htmlcode += "<option value='"+e.getDocumento()+"'>"+e.getNombres()+"</option> ";        
         }return htmlcode;
     }
 

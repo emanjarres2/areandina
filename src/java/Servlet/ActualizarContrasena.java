@@ -49,13 +49,13 @@ public class ActualizarContrasena extends HttpServlet {
         String confirmar = request.getParameter("confirmarPassword");        
         
         UsuariosDao gu = new UsuariosDao();
-        
+        String passencriptado = gu.getEncriptacion(pass);
         //out.print(actualizar+"usuario: "+usuario);
         switch(actualizar){
             case "monitor":
                 if(newpass.equals(confirmar)){                      
                     try {                        
-                        String consulta = "UPDATE usuarios SET Pass_users='"+gu.getEncriptacion(confirmar)+"' WHERE Pass_users='"+pass+"' AND Id_usuarios='"+usuario+"';";
+                        String consulta = "UPDATE usuarios SET Pass_users='"+gu.getEncriptacion(confirmar)+"' WHERE Pass_users='"+passencriptado+"' AND Id_usuarios='"+usuario+"';";
                         conn=cn.getConexion();
                         pst = (PreparedStatement) conn.prepareStatement(consulta);
                         pst.executeUpdate();
@@ -79,7 +79,7 @@ public class ActualizarContrasena extends HttpServlet {
             case "administrativo":
                 if(newpass.equals(confirmar)){                      
                     try {                        
-                        String consulta = "UPDATE usuarios SET Pass_users='"+gu.getEncriptacion(confirmar)+"' WHERE Pass_users='"+pass+"' AND Id_usuarios='"+usuario+"';";
+                        String consulta = "UPDATE usuarios SET Pass_users='"+gu.getEncriptacion(confirmar)+"' WHERE Pass_users='"+passencriptado+"' AND Id_usuarios='"+usuario+"';";
                         conn=cn.getConexion();
                         pst = (PreparedStatement) conn.prepareStatement(consulta);
                         pst.executeUpdate();
@@ -103,7 +103,7 @@ public class ActualizarContrasena extends HttpServlet {
             case "administrador":
                 if(newpass.equals(confirmar)){                      
                     try {                        
-                        String consulta = "UPDATE usuarios SET Pass_users='"+gu.getEncriptacion(confirmar)+"' WHERE Pass_users='"+pass+"' AND Id_usuarios='"+usuario+"';";
+                        String consulta = "UPDATE usuarios SET Pass_users='"+gu.getEncriptacion(confirmar)+"' WHERE Pass_users='"+passencriptado+"' AND Id_usuarios='"+usuario+"';";
                         conn=cn.getConexion();
                         pst = (PreparedStatement) conn.prepareStatement(consulta);
                         pst.executeUpdate();

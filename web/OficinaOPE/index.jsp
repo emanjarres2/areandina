@@ -46,7 +46,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="../OficinaOPE/NuevoMonitor.jsp">Nuevo Monitor</a>                                      
-                                        <a class="dropdown-item" href="../OficinaOPE/CrearTutorias.jsp">Remision de Monitorias</a>   
+                                        <a class="dropdown-item" href="../OficinaOPE/RemisionMonitoria.jsp">Remision de Monitorias</a>   
                                         
                                     </div>
                                 </li>
@@ -85,9 +85,9 @@
                 <div class="card text-center">
                     <h1> Orientación y Permanencia Estudiantil</h1>
                 </div>
-                <div class="container" style="margin-top: 3%;">                    
-                    <div class="row justify-content-md-center">
-                        <div class="col-lg-4">                           
+                <div class="container" style="margin-top: 3%;">                   
+                    <div class="row justify-content-md-center">                        
+                        <div class="col-lg-3">                           
                             <a class="nav-link" href="ConsultarUsuarios.jsp">
                                 <img src="../public/img/Monitor2.jpg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>   
@@ -101,18 +101,32 @@
                             <a class="nav-link" href="ConsultarDatos.jsp">
                                 <img src="../public/img/Resumen.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>
+                        </div>                        
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-lg-3" style="margin-top: 2%;">                            
+                            <a class="nav-link" href="ConsultaTutoriasReportadas.jsp" target="_blank">
+                                <img src="../public/img/Resumen.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                            </a>   
                         </div>
-                         <div class="col-lg-3" style="margin-top: 2%;">                            
+                        <div class="col-lg-3" style="margin-top: 2%;">                            
+                            <a class="nav-link" href="ConsultaTutoriasRemitidas.jsp" target="_blank">
+                                <img src="../public/img/Resumen.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                            </a>   
+                        </div> 
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-lg-3" style="margin-top: 2%;">                            
                             <a class="nav-link" href="https://meet.google.com/" target="_blank">
                                 <img src="../public/img/Videoconferencia.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>   
-                      </div> 
-                         <div class="col-lg-3"style="margin-top: 2%;">                            
+                        </div> 
+                        <div class="col-lg-3"style="margin-top: 2%;">                            
                             <a class="nav-link" href="http://gmail.com/" target="_blank">
                                 <img src="../public/img/email.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>   
-                      </div> 
-                    </div>
+                        </div> 
+                    </div>    
                 </div>           
                 
             </div>

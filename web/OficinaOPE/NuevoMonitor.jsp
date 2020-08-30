@@ -107,17 +107,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="form-group">
-                            <label for="validationCustom04">Modalidad</label>
-                            <select class="custom-select" id="nombreModalidad" name="nombreModalidad" required>
-                                <option selected disabled>Seleccione...</option>
-                                <option value="Presencial">Presencial</option>
-                                <option value="Virtual">Virtual</option>
-                                <option value="Distancia">Distancia</option>
-                            </select>
-                        </div>
-                    </div>
+                    
                    
                 </div>
                 <div class="row">

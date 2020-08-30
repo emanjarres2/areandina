@@ -1,24 +1,25 @@
 <%-- 
-    Document   : ConsultarTutorias
-    Created on : 1/08/2020, 04:52:56 PM
-    Author     : emanjarres
+    Document   : ConsultaTutoriasReportadas
+    Created on : Aug 29, 2020, 9:48:37 PM
+    Author     : manjarres
 --%>
+
 
 <%@page  session="true"%>
 <%
     HttpSession objetoSession = request.getSession();
     String usuario = (String)objetoSession.getAttribute("UsuarioAutenticado");
     if(usuario.equals(" ")){
-        response.sendRedirect("../index.jsp");
+        response.sendRedirect("index.jsp");
     }  
 %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SIGMAA |  Monitorias Registradas</title>
-        <link rel="icon" href="../public/img/favicon.ico">
-        
+        <title>SIGMAA | Consulta de Monitorias Reportadas</title>
+        <link rel="icon" href="../public/img/icon.png" type="img/png">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
@@ -36,9 +37,10 @@
         <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.3/js/buttons.bootstrap4.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.3/js/buttons.html5.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.3/js/buttons.print.min.js"></script>
+        
         <script type="text/javascript">            
             $(document).ready(function() {                
-                $('#tablaTutorias').DataTable({
+                $('#tablaMonitorias').DataTable({
                     "responsive":"true",
                     "dom":'Bfrtilp',
                     "buttons":[
@@ -62,17 +64,22 @@
                     ],
                     "ajax":{
                       "method":"POST",
-                      "url":"../ConsultaTutorias",
+                      "url":"../consultamonitoriasreportadas",
                       "dataSrc":"datos"
                     },"columns":[
-                      { "data": "Id_tutorias" },
                       { "data": "fecha" },
-                      { "data": "Documento" },
-                      { "data": "Name_estudiantes" },
-                      { "data": "nombre" },
-                      { "data": "Name_factor" },
-                      { "data": "Name_users" },
-                      { "data": "observaciones" }            
+                      { "data": "idEstudiante" },
+                      { "data": "nombreEstudiante" },
+                      { "data": "factor" },
+                      { "data": "tipoMonitoria" },
+                      { "data": "monitor" },
+                      { "data": "sede" },
+                      { "data": "facultad" },
+                      { "data": "programa" },   
+                      { "data": "materia" },   
+                      { "data": "observaciones" },   
+                      { "data": "remision" },   
+                      { "data": "evidencia" }
                     ]
                 });              
                 //$.fn.dataTable.ext.errMode = 'throw';               
@@ -80,7 +87,7 @@
         </script> 
     </head>
     <body>
-      <%--Inicio del encabezado de la p·gina --%>  
+<%--Inicio del encabezado de la p√°gina --%>  
     <div class="card-header">
         <div class="container">
             <div class="row">
@@ -106,49 +113,55 @@
                     </nav>
                 </div>
                 <div class="col-sm-3">
-                    <h6>Inicio de sesiÛn como:</h6>
+                    <h6>Inicio de sesi√≥n como:</h6>
                     <% out.print(usuario); %>
                 </div>
             </div>                    
         </div> 
     </div>
-<%--Fin del encabezado de la p·gina --%>  
+<%--Fin del encabezado de la p√°gina --%>  
 
-<%-- Cuerpo de la p·gina --%>
+<%-- Cuerpo de la p√°gina --%>
             <div class="card-body">
                 <div class="card text-center">
-                    <h1> Casos de Monitorias Creadas</h1>
+                    <h1> Consulta de Monitorias Reportadas</h1>
                 </div> 
             </div>
             <div class="container-fluid" style="margin-top: 2%;">
                 <div class="table-responsive">
-                    <table id="tablaTutorias" class="table table-bordered table-striped table-hover" style="width:100%">
+                    <table id="tablaMonitorias" class="table table-bordered table-striped table-hover" style="width:100%">
                         <thead class="text-center ">
-                            <tr>
-                                <th>N∞</th>
+                            <tr>                                
                                 <th>Fecha</th>
-                                <th>documento</th>
+                                <th>Identificaci√≥n Estudiante</th>
                                 <th>Nombre del Estudiante</th>
-                                <th>Semestre</th>
                                 <th>Factor</th>
-                                <th>Monitor</th>
-                                <th>Observaciones</th>                                    
+                                <th>Tipo Monitoria</th>
+                                <th>Monitor</th>                                
+                                <th>Sede</th>
+                                <th>Facultad</th>                                    
+                                <th>Programa</th>                                    
+                                <th>Materia</th>                                    
+                                <th>Observaciones del Monitor</th>                                    
+                                <th>Remisi√≥n</th>                                    
+                                <th>Evidencia</th>                                    
                             </tr>
                         </thead>
                         <tbody></tbody>                                
                     </table>
                 </div>                    
             </div>
-<%-- Fin del cuerpo de la p·gina --%>  
+<%-- Fin del cuerpo de la p√°gina --%>  
             
-<%-- PÌe de la p·gina --%>            
-        <div class="card text-center" style="margin-top: 16.5%;">    
+<%-- P√≠e de la p√°gina --%>            
+        <div class="card-footer text-center" style="margin-top: 14%;">    
             <div class="card-footer text-muted">
-                <h3>Sistema de InformaciÛn y GestiÛn de Monitoria AcadÈmica Andina - SIGMAA</h3>
+                <h3>Sistema de Informaci√≥n y Gesti√≥n de Monitoria Acad√©mica Andina - SIGMAA</h3>
             </div>
         </div>
-<%-- Fin del pÌe de la p·gina --%>  
-
-        
+<%-- Fin del p√≠e de la p√°gina --%>             
+    
+                   
+                
     </body>
 </html>

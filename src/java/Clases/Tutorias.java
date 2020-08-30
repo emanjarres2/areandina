@@ -13,7 +13,7 @@ import java.sql.Date;
  */
 public class Tutorias {
     
-   private int id;
+    private int id;
     private Date fecha;
     private String estudiante;
     private int programa;
@@ -37,6 +37,8 @@ public class Tutorias {
         this.observaciones = observaciones;
         this.estado = estado;
     }
+
+   
 
     /**
      * @return the id

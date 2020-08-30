@@ -45,7 +45,7 @@ public class ConsultarUsuarios extends HttpServlet {
         ResultSet rs = null;
         String datos="";
            try{
-         String sql="Select us.Id_usuarios, us.Name_users,us.Mail_users,us.Phone_users,t.nombre,c.Name_campus,f.Name_faculty,p.Name_program ,us.Semestre,us.Modalidad from usuarios us inner join campus c on us.Id_campus= c.Id_campus inner join facultad f on us.Id_faculty=f.Id_faculty inner join programa p on us.Id_program=p.Id_program inner join tipotutor t on us.Type_users=t.Id_tipo where us.Type_users=1 or us.Type_users=2 or us.Type_users=3 or us.Type_users=5;";
+         String sql="Select us.Id_usuarios, us.Name_users,us.Mail_users,us.Phone_users,t.nombre,c.Name_campus,f.Name_faculty,p.Name_program ,us.Semestre,us.Modalidad from usuarios us inner join campus c on us.Id_campus= c.Id_campus inner join facultad f on us.Id_faculty=f.Id_faculty inner join programa p on us.Id_program=p.Id_program inner join tipotutor t on us.Type_users=t.Id_tipo where us.Type_users=1 or us.Type_users=2 or us.Type_users=3 or us.Type_users=5";
          con=cn.getConexion();
          st=con.createStatement();
          rs=st.executeQuery(sql); 
@@ -63,7 +63,7 @@ public class ConsultarUsuarios extends HttpServlet {
             item.addProperty("Name_program", rs.getString("Name_program"));
             item.addProperty("Semestre", rs.getString("Semestre"));
             item.addProperty("Modalidad", rs.getString("Modalidad"));
-            item.addProperty("acciones", "<button type='submit' name='eliminar' id='"+rs.getInt("Id_usuarios")+"' class='btn btn-danger btn-xs eliminar' title='eliminar'><i class='fas fa-trash-alt'></i></button>");
+            item.addProperty("acciones", "<button type='submit' name='eliminar' id='"+rs.getInt("Id_usuarios")+"' class='btn btn-success btn-xs activo' title='activo'><i class='fas fa-trash-alt'></i></button>");
             array.add(item);
             //datos +=rs.getInt(1)+" "+rs.getString(2);
         }

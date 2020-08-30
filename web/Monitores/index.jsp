@@ -3,15 +3,18 @@
     Created on : 31/07/2020, 11:21:15 AM
     Author     : emanjarres
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true" %>
 <%
     HttpSession objetoSession = request.getSession();
     String usuario = (String)objetoSession.getAttribute("Usuario");
-    if(usuario.equals(" ")){
-        response.sendRedirect("index.jsp");
+    try{
+        if(usuario.equals(" ")){
+        response.sendRedirect("./index.jsp");
     }  
+    }catch(Exception e){
+        response.sendRedirect("./index.jsp");
+    }
+    
 %>
 <!DOCTYPE html>
 <html>
@@ -22,7 +25,7 @@
         <title>SIGMAA |Portal de Monitoria</title>
     </head>
     <body>
-        <%--Inicio del encabezado de la pÃ¡gina --%>  
+        <%--Inicio del encabezado de la página --%>  
     <div class="card-header">
         <div class="container" >
             <div class="row">
@@ -53,7 +56,7 @@
                                         Actualizar
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                        
-                                        <a class="dropdown-item" href="ActualizarPassword.jsp">ContraseÃ±a</a>
+                                        <a class="dropdown-item" href="ActualizarPassword.jsp">Contraseña</a>
                                     </div>
                                 </li>
                                 <li class="nav-item active">
@@ -64,59 +67,55 @@
                     </nav>
                 </div>
                 <div class="col-sm-3">
-                    <h6>Inicio de sesiÃ³n como:</h6>
+                    <h6>Inicio de sesión como:</h6>
                     <% out.print(usuario); %> 
                 </div>
             </div>                    
         </div> 
     </div>
-<%--Fin del encabezado de la pÃ¡gina --%>  
+<%--Fin del encabezado de la página --%>  
 
-<%-- Cuerpo de la pÃ¡gina --%>
+<%-- Cuerpo de la página --%>
             <div class="card-body" >
                 <div class="card text-center">
                     <h1>Zona de monitores</h1>
                 </div>                  
                 
                 <div class="container" >
-                    <div class="row justify-content-md-center" style="margin-top:8%;">
+                    <div class="row justify-content-md-center" style="margin-top:8%;" >
                         <div class="col-lg-2">                            
-                            <a class="nav-link" href="ConsultaMonitorias.jsp">
-                                <img src="../public/img/RevisarMonitoriasAsignadas.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                            <a class="nav-link" href="ConsultaMonitorias.jsp" target="_blank">
+                                <img src="../public/img/Monitorias.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px" title="Consulta Monitorias Pendientes">
                             </a>   
                         </div>
                         <div class="col-lg-2">                            
-                            <a class="nav-link" href="CargueEvidencias.jsp">
-                                <img src="../public/img/AtencionMonitoriasAsignadas.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                            <a class="nav-link" href="CargueEvidencias.jsp" target="_blank">
+                                <img src="../public/img/Evidencia.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px" title="Atención Monitorias Remitidas OPE">
                             </a>   
                         </div>                        
-                        <div class="col-lg-2">                            
-                            <a class="nav-link" href="RegistroMonitoria.jsp">
-                                <img src="../public/img/RegistrarMonitorias.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
-                            </a>   
-                        </div>                        
+                                            
                         <div class="col-lg-2">                            
                             <a class="nav-link" href="https://meet.google.com/" target="_blank">
-                                <img src="../public/img/Videoconferencia.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                                <img src="../public/img/Videoconferencia.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px" title="VideoConferencias">
                             </a>   
                         </div> 
                         <div class="col-lg-2">                            
                             <a class="nav-link" href="http://gmail.com/" target="_blank">
-                                <img src="../public/img/email.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                                <img src="../public/img/email.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px" title="Correo Institucional">
                             </a>   
                         </div> 
                     </div>                    
                 </div> 
             </div>
-<%-- Fin del cuerpo de la pÃ¡gina --%>  
+<%-- Fin del cuerpo de la página --%>  
             
-<%-- PÃ­e de la pÃ¡gina --%>            
+<%-- Píe de la página --%>            
         <div class="card text-center" style="margin-top: 21%;">    
             <div class="card-footer text-muted">
-                <h3>Sistema de InformaciÃ³n y GestiÃ³n de Monitoria AcadÃ©mica Andina - SIGMAA</h3>
+                <h3>Sistema de Información y Gestión de Monitoria Académica Andina - SIGMAA</h3>
             </div>
         </div>
-<%-- Fin del pÃ­e de la pÃ¡gina --%> 
+<%-- Fin del píe de la página --%> 
 <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     </body>

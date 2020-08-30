@@ -48,28 +48,27 @@ public class CrearTutorias extends HttpServlet {
         int factor = Integer.parseInt(request.getParameter("factor"));
         int monitor = Integer.parseInt(request.getParameter("monitor"));        
         String observaciones = request.getParameter("observaciones");
+        //String accion = request.getParameter("btnformularioCrear");
         
 //        out.print(fecha);
-        
-        try {
-                String consulta = "insert into tutorias (fecha, Id_estudiante, Id_programa, semestre, Id_factor, Id_tutor, obervaciones) values(?,?,?,?,?,?,?)";
+                try {
+                String consulta = "insert into tutorias (fecha, Id_estudiante, Id_programa, semestre, Id_factor, Id_tutor, observaciones) values(?,?,?,?,?,?,?)";
                 con=cn.getConexion();
                 st = (PreparedStatement) con.prepareStatement(consulta);
-
-                st.setDate(1, fecha);
-                st.setInt(2, estudiante);
-                st.setInt(3, programa);
-                st.setInt(4, semestre);
-                st.setInt(5, factor);
-                st.setInt(6, monitor);
-                st.setString(7, observaciones);
-                
+                st.setDate(1,fecha);
+                st.setInt(2,estudiante);
+                st.setInt(3,programa);
+                st.setInt(4,semestre);
+                st.setInt(5,factor);
+                st.setInt(6,monitor);
+                st.setString(7,observaciones);
                 if (st.executeUpdate() == 1) {
-                    response.sendRedirect("OficinaOPE/CrearTutorias.jsp");
+                    response.sendRedirect("OficinaOPE/RemisionMonitoria.jsp");
                 } else {
                     response.sendRedirect("ups.jsp");
                 }
-
+                
+                
             } catch (IOException | SQLException e) {
                     out.print("Error en la creación de tutorias 1: " + e);
             } finally {
@@ -80,7 +79,11 @@ public class CrearTutorias extends HttpServlet {
                 } catch (SQLException e) {
                     out.print("Error en la creación de tutorias 2: " + e);
                 }
-            }
+            }  
+           
+            
+             
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

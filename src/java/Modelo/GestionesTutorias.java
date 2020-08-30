@@ -7,6 +7,7 @@ package Modelo;
 
 import Clases.ReporteResultado;
 import Clases.Resultado;
+import Clases.Monitorias;
 import Clases.Tutorias;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,7 +27,7 @@ public class GestionesTutorias extends Conexion {
         ResultSet rs;
                
         try {
-            String consulta = "SELECT tutorias.Id_tutorias, tutorias.fecha, estudiantes.Name_estudiantes, tutorias.Id_programa, tutorias.semestre, tutorias.Id_factor, tutorias.Id_tutor, tutorias.observaciones, tutorias.estado \n" +
+            String consulta = "SELECT tutorias.Id_tutorias, tutorias.fecha, tutorias.id_estudiante,estudiantes.Name_estudiantes, tutorias.Id_programa, tutorias.semestre, tutorias.Id_factor, tutorias.Id_tutor, tutorias.observaciones, tutorias.estado \n" +
                                "FROM tutorias, estudiantes \n" +
                                "WHERE tutorias.Id_estudiante=estudiantes.Documento AND tutorias.estado='abierto' ";
             pst =(PreparedStatement) getConexion().prepareStatement(consulta);
@@ -35,7 +36,7 @@ public class GestionesTutorias extends Conexion {
             while(rs.next()){
                 tutorias.add(new Tutorias(
                         rs.getInt("Id_tutorias"),
-                        rs.getDate("fecha"),                        
+                        rs.getDate("fecha"),
                         rs.getString("Name_estudiantes"),
                         rs.getInt("Id_programa"),
                         rs.getInt("semestre"),
@@ -63,13 +64,15 @@ public class GestionesTutorias extends Conexion {
         ResultSet rs = null;
         int resultado = 0;
             try {
-                String consulta = "INSERT INTO resultado (fecha, asignatura, observa, nombre, ruta) VALUES(?,?,?,?,?)";
+                String consulta = "INSERT INTO resultado (Id_tutoria, fecha, asignatura, observa, nombre, ruta) VALUES(?,?,?,?,?,?)";
                 pst = (PreparedStatement) getConexion().prepareStatement(consulta);
-                pst.setDate(1, r.getFecha());
-                pst.setInt(2, r.getAsignatura());
-                pst.setString(3, r.getObservaciones());
-                pst.setString(4, r.getNombre());
-                pst.setString(5, r.getRuta());
+                pst.setInt(1, r.getIdTutoria());
+                pst.setDate(2, r.getFecha());
+                pst.setInt(3, r.getAsignatura());
+                pst.setString(4, r.getObservaciones());
+                pst.setString(5, r.getNombre());
+                pst.setString(6, r.getRuta());
+                //pst.setString(6, r.getIdEstudiante());
                 pst.executeUpdate();                
 
             } catch (SQLException e) {
@@ -160,6 +163,48 @@ public class GestionesTutorias extends Conexion {
         return tutorias;
     }
     
+    //Metodo para guardar desde el formario de crear de monitorias
+    public int crearMonitorias(Monitorias r){
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        int resultado = 0;
+            try {
+                String consulta = "INSERT INTO monitoria (idEstudiante, fecha, idFactor, idTipoMonitoria, idMonitor, idSede, idFacultad, idPrograma, idMateria, observacionMontoria, idRemision, tipoEvidencia, rutaArchivo) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                pst = (PreparedStatement) getConexion().prepareStatement(consulta);
+                
+                pst.setString(1, r.getDocumentoEstudiante());
+                pst.setDate(2, r.getFecha());
+                pst.setInt(3, r.getFactor());                
+                pst.setInt(4, r.getIdMonitoria());
+                pst.setInt(5, r.getIdMonitor());
+                pst.setInt(6, r.getIdSede());
+                pst.setInt(7, r.getIdFacultad());
+                pst.setInt(8, r.getIdPrograma());
+                pst.setInt(9, r.getIdMateria());
+                pst.setString(10, r.getObservaciones());
+                pst.setInt(11, r.getIdRemision());
+                pst.setString(12, r.getTipoEvidencia());
+                pst.setString(13, r.getRuta());                
+                
+                pst.executeUpdate();                
+                //System.out.print(r);
+            } catch (SQLException e) {
+                System.out.print("Error: " + e);                
+            } finally {
+                try {
+                    if (pst != null) {
+                        pst.close();
+                        
+                    }
+                    if (rs != null) {
+                        rs.close();
+                    }
+                } catch (SQLException e) {
+                    
+                }
+            }        
+        return resultado;
+    }
     
      
 }

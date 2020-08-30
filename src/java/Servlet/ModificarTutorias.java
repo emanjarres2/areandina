@@ -56,7 +56,8 @@ public class ModificarTutorias extends HttpServlet {
          * para almacenar los archivos.
          * En el directorio raiz del proyecto debe estar la carpta evidencias.
          */
-        String ruta = "C:\\Users\\emanjarres\\Documents\\NetBeansProjects\\areandina\\web\\evidencias\\";
+        String ruta = "C:\\Users\\manjarres\\Documents\\areandina\\web\\evidencias\\";
+        String rutaServidor = "http://localhost:8080/areandina//evidencias/";
         
         switch (accion){               
             case "actualizar":
@@ -72,16 +73,17 @@ public class ModificarTutorias extends HttpServlet {
                         if(!fileitem.isFormField()){
                             File f = new File(ruta+fileitem.getName());
                             fileitem.write(f);
-                            r.setRuta(ruta+fileitem.getName());
+                            r.setRuta(rutaServidor+fileitem.getName());
                         }else{
                             lista.add(fileitem.getString());
                         }
                     }
+                    r.setIdTutoria(Integer.parseInt(lista.get(0)));
                     r.setFecha(Date.valueOf(lista.get(1)));
                     r.setAsignatura(Integer.parseInt(lista.get(2)));
                     r.setObservaciones(lista.get(3));
-                    r.setNombre(lista.get(4));                    
-                    
+                    r.setNombre(lista.get(4));
+                    //r.setIdEstudiante(lista.get(6));// esta linea no esta funcionando se supone que es el caso del estudiante 
                     gt.actualizarTutorias(r);
                     
                 } catch (Exception e) {

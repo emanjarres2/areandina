@@ -16,7 +16,7 @@
     <head>
         <meta http-equiv="Content-Type" content="charset=UTF-8">
         <title>SIGMAA | Editar Registro de Tutorias</title>
-        <link rel="icon" href="../public/img/icon.png" type="img/png">
+        <link rel="icon" href="../public/img/favicon.ico">
         <link href="../public/css/estilos.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -44,8 +44,7 @@
                       { "data": "factor" },
                       { "data": "monitor" },
                       { "data": "obsOPE" },
-                      { "data": "obsMON" },
-                      { "data": "estado" },
+                      { "data": "obsMON" },                      
                       { "data": "ruta" }                                 
                       
                     ]
@@ -58,7 +57,7 @@
         </script> 
     </head>
     <body>
-       <%--Inicio del encabezado de la página --%>  
+<%--Inicio del encabezado de la página --%>  
     <div class="card-header">
         <div class="container">
             <div class="row">
@@ -93,13 +92,13 @@
 <%--Fin del encabezado de la página --%>  
 
 <%-- Cuerpo de la página --%>
-            <div class="card-body">
+        <div class="card-body">
                 <div class="card text-center">
                     <h1>Remisiones  de Monitoria</h1>
                 </div> 
                                     
                 </div>  
-                 <div class="container-fluid" style="margin-top: 2%;">
+        <div class="container-fluid" style="margin-top: 2%;">
                     <div class="table-responsive">
                         <table id="tablaTutorias" class="table table-bordered table-striped table-hover" style="width:100%">
                             <thead class="text-center ">
@@ -110,8 +109,7 @@
                                     <th>Factor</th>
                                     <th>Monitor</th>                              
                                     <th>Obs. OPE</th>
-                                    <th>Obs. Monitor</th>
-                                    <th>Estado</th>
+                                    <th>Obs. Monitor</th>                                   
                                     <th>Evidencias</th>
                                 </tr>
                             </thead>
@@ -119,13 +117,11 @@
                             </tbody>                                
                         </table>
                     </div>                    
-                </div>  
-                
-            </div>    
-                <div class="card text-center">
+                </div>                  
+        <div class="card text-center">
                 <h1>Área de modificaciones</h1>
                 </div>
-                <div class="container">
+        <div class="container">
                 <form action="../CerrarCasos" method="post" id="formularioModificarEstudiantes" class="needs-validation" novalidate>
                     <div class="row text-center">
                         <div class="col-2">
@@ -142,8 +138,7 @@
                         </div>
                     </div>
                 </form>
-            </div>
-            </div>             
+            </div>            
 <%-- Fin del cuerpo de la página --%>  
             
 <%-- Píe de la página --%>            

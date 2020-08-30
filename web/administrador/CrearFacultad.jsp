@@ -94,7 +94,7 @@
 <%-- Fin del cuerpo de la página --%>  
             
 <%-- Píe de la página --%>            
-        <div class="card text-center"  style="margin-top: 15%;">    
+        <div class="card text-center"  style="margin-top: 19%;">    
             <div class="card-footer text-muted">
                 <h3>Sistema de Información y Gestión de Monitoria Académica Andina - SIGMAA</h3>
             </div>

@@ -48,13 +48,13 @@ public class CrearMonitores extends HttpServlet {
         String id_facultad = request.getParameter("idfacultad");
         String id_programa = request.getParameter("idprograma");        
         String semestre = request.getParameter("semestre");
-        String modalidad = request.getParameter("nombreModalidad");
+        //String modalidad = request.getParameter("nombreModalidad");
         
         int btn = Integer.parseInt(request.getParameter("btnformularioCrear"));
         //out.print(btn);
         
         try {
-            String consultax = "insert into usuarios (Id_usuarios, Name_users, Mail_users, Phone_users, Type_users, Id_campus, Id_faculty, Id_program, Semestre, Modalidad) values(?,?,?,?,?,?,?,?,?,?)";
+            String consultax = "insert into usuarios (Id_usuarios, Name_users, Mail_users, Phone_users, Type_users, Id_campus, Id_faculty, Id_program, Semestre) values(?,?,?,?,?,?,?,?,?)";
                 pst = (PreparedStatement) conexion.getConexion().prepareStatement(consultax);
 
                 pst.setString(1, identificacion);
@@ -65,8 +65,7 @@ public class CrearMonitores extends HttpServlet {
                 pst.setString(6, id_campus);       
                 pst.setString(7, id_facultad);       
                 pst.setString(8, id_programa);       
-                pst.setString(9, semestre);       
-                pst.setString(10, modalidad);
+                pst.setString(9, semestre);
                 
                 if (pst.executeUpdate() == 1) {
                     switch(btn){

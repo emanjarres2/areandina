@@ -71,7 +71,6 @@
                                 <tr>
                                     <th>Documento</th>
                                     <th>Nombres</th>
-      
                                     <th>Correo</th>
                                     <th>Teléfono</th>
                                     <th>Tipo</th>
@@ -80,7 +79,7 @@
                                     <th>Programa</th>
                                     <th>Semestre</th>
                                     <th>Modalidad</th>  
-                                    <th>acciones</th>
+                                    <th>Estado</th>
                                 </tr>
                             </thead>
                             <tbody  class="text-center">

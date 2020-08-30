@@ -3,8 +3,6 @@
     Created on : 2/08/2020, 05:58:16 AM
     Author     : emanjarres
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page  session="true"%>
 <%
     HttpSession objetoSession = request.getSession();
@@ -25,7 +23,7 @@
         <link href="../public/css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <%--Inicio del encabezado de la pÃ¡gina --%>  
+        <%--Inicio del encabezado de la página --%>  
     <div class="card-header">
         <div class="container">
             <div class="row">
@@ -51,18 +49,18 @@
                     </nav>
                 </div>
                 <div class="col-sm-3">
-                    <h6>Inicio de sesiÃ³n como:</h6>
+                    <h6>Inicio de sesión como:</h6>
                     <% out.print(usuario); %> 
                 </div>
             </div>                    
         </div> 
     </div>
-<%--Fin del encabezado de la pÃ¡gina --%>  
+<%--Fin del encabezado de la página --%>  
 
-<%-- Cuerpo de la pÃ¡gina --%>
+<%-- Cuerpo de la página --%>
             <div class="card-body">
                 <div class="card text-center">
-                    <h1>Monitorias Asignadas desde la Oficina de Orientacion y Permanencia</h1>
+                    <h1>Monitorias Pendientes</h1>
                     <input id="nombre" name="nombre" value="${usuario}" visibility: hidden>
                 </div>  
             </div>
@@ -71,9 +69,11 @@
                         <table id="tablaTutorias" class="table table-bordered table-striped table-hover" style="width:100%">
                             <thead class="text-center ">
                                 <tr>
-                                    <th>NÂ°</th>
-                                    <th>Fecha</th>
+                                    <th>N°</th>
+                                    <th>Fecha</th>                                   
                                     <th>Estudiante</th>
+                                    <th>Telefono</th>
+                                    <th>Correo</th>
                                     <th>Semestre</th>
                                     <th>Factor</th>
                                     <th>Monitor</th>
@@ -88,26 +88,24 @@
                 </div>  
                 
             </div>        
-<%-- Fin del cuerpo de la pÃ¡gina --%>  
+<%-- Fin del cuerpo de la página --%>  
             
-<%-- PÃ­e de la pÃ¡gina --%>            
+<%-- Píe de la página --%>            
         <div class="card text-center" style="margin-top: 16.4%;">    
             <div class="card-footer text-muted">
-                <h3>Sistema de InformaciÃ³n y GestiÃ³n de Monitoria AcadÃ©mica Andina - SIGMAA</h3>
+                <h3>Sistema de Información y Gestión de Monitoria Académica Andina - SIGMAA</h3>
             </div>
         </div>
-<%-- Fin del pÃ­e de la pÃ¡gina --%>  
+<%-- Fin del píe de la página --%>  
         
             <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> 
         <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-            <script type="text/javascript">
-            
-            $(document).ready(function() {
-                
-                $('#tablaTutorias').DataTable({
-                    
+        
+        <script type="text/javascript">            
+            $(document).ready(function() {                
+                $('#tablaTutorias').DataTable({                    
                     "ajax":{
                       "method":"POST",
                       "url":"../ConsultaTutorias",
@@ -116,12 +114,12 @@
                       { "data": "Id_tutorias" },
                       { "data": "fecha" },
                       { "data": "Name_estudiantes" },
+                      { "data": "Telefono_estudiantes" },
+                      { "data": "Mail_estudiantes" },
                       { "data": "nombre" },
                       { "data": "Name_factor" },
                       { "data": "Name_users" },
                       { "data": "observaciones" }
-                      
-                      
                     ]
                 });
               

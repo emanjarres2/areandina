@@ -7,7 +7,6 @@
 <%@page import="Controller.MuestraCampus"%>
 <%@page import="Controller.MuestraListas"%>
 <%@page import="Modelo.GestionesEstudiantes"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true" %>
 <%
     HttpSession objetoSession = request.getSession();
@@ -26,7 +25,7 @@
         <script src="https://kit.fontawesome.com/4e46819824.js" crossorigin="anonymous"></script>
     </head>
     <body>
-    <%--Inicio del encabezado de la p谩gina --%>  
+    <%--Inicio del encabezado de la p醙ina --%>  
     <div class="card-header">
         <div class="container">
             <div class="row">
@@ -55,18 +54,18 @@
                     </nav>
                 </div>
                 <div class="col-sm-3">
-                    <h6>Inicio de sesi贸n como:</h6>
+                    <h6>Inicio de sesi髇 como:</h6>
                     <% out.print(usuario); %>
                 </div>
             </div>                    
         </div> 
     </div>
-    <%--Fin del encabezado de la p谩gina --%>
-    <%--Inicio del cuerpo de la p谩gina --%>  
+    <%--Fin del encabezado de la p醙ina --%>
+    <%--Inicio del cuerpo de la p醙ina --%>  
     <div class="container" style="margin-top:1%;">
         <div class="card">
         <div class="card-header text-white bg-success mb-3" >
-         <i class="fas fa-users fa-2x fa-lg" style="float:left;"> </i> <h3 style="margin-left: 1.5em;">Registro de Tutorias</h3> 
+         <i class="fas fa-users fa-2x fa-lg" style="float:left;"> </i> <h3 style="margin-left: 1.5em;">Registro de Monitorias</h3> 
         </div>
         <div class="card-body">
             <form action="../guardarResultados?btnGuardar=guardar" method="POST" enctype="multipart/form-data"  class="form-horizontal" >
@@ -101,7 +100,11 @@
                        <%= gf.getListaTipoMonitor() %>                       
                     </select> 
                 </div>
-                <div class="col-2">
+                <div class="col-4">
+                    <label for="usu">Identificaci髇 del Monitor</label>
+                    <input id="identificacionMonitor" name="identificacionMonitor" class="form-control">
+                </div>    
+                <div class="col-4">
                     <label for="pass">Sede</label>
                     <select name="sede" id="sede" class="form-control">
                         <option selected>Seleccione......</option> 
@@ -109,21 +112,22 @@
                         <%= mc.getNombreCampus() %>
                     </select> 
                 </div>
-                <div class="col-6">
+                   
+            </div>        
+            <div class="row">
+                <div class="col-4">
                     <label for="pass">Facultad</label>
                     <select name="facultad" id="facultad" class="form-control">
                         <option selected>Seleccione......</option>                        
                     </select> 
-                </div>    
-            </div>        
-            <div class="row">
-                <div class="col-6">
+                </div> 
+                <div class="col-4">
                     <label for="pass">Programa</label>
                     <select name="programa" id="programa" class="form-control">
                         <option selected>Seleccione......</option>                        
                     </select> 
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                     <label for="pass">Materia</label>
                     <select name="materia" id="materia" class="form-control">
                         <option selected>Seleccione......</option>                        
@@ -136,9 +140,9 @@
                     </textarea>
                 </div>
                 <div class="col-4">
-                    <h4>Remisi贸n por parte Monitor a la OPE</h4>
-                    <p align="justify">Este opci贸n es para que en dado caso el Monitor puede realizar una remisi贸n a la Oficina de Orientaci贸n y Permanencia Estudiantil</p>
-                    <label for="remision">Remisi贸n a OPE</label>
+                    <h4>Remisi髇 por parte Monitor a la OPE</h4>
+                    <p align="justify">Este opci髇 es para que en dado caso el Monitor puede realizar una remisi髇 a la Oficina de Orientaci髇 y Permanencia Estudiantil</p>
+                    <label for="remision">Remisi髇 a OPE</label>
                     <select name="remision" id="remision" class="form-control">
                         <option selected>Seleccione......</option>
                         <%= gf.getListaRemisiones() %>
@@ -155,8 +159,8 @@
                         <option value="foto">Fotografia</option>    
                         <option value="captura">Captura de pantalla</option>    
                         <option value="whatsapp">Whatsapp</option>    
-                        <option value="correo">Correo electr贸nico</option>
-                        <option value="sesion">Sesi贸n en linea</option>
+                        <option value="correo">Correo electr髇ico</option>
+                        <option value="sesion">Sesi髇 en linea</option>
                     </select>
                 </div>
                 <br><br>
@@ -174,14 +178,14 @@
         </div><%-- Fin de card --%>
     </div><%-- Fin de container --%>               
                     
-<%-- Fin del body de la p谩gina --%>                    
-<%-- P铆e de la p谩gina --%>            
+<%-- Fin del body de la p醙ina --%>                    
+<%-- P韊 de la p醙ina --%>            
         <div class="card text-center"style="margin-top:1%;">    
             <div class="card-footer text-muted">
-                <h3>Sistema de Informaci贸n y Gesti贸n de Monitoria Acad茅mica Andina - SIGMAA</h3>
+                <h3>Sistema de Informaci髇 y Gesti髇 de Monitoria Acad閙ica Andina - SIGMAA</h3>
             </div>
         </div>
-<%-- Fin P铆e de la p谩gina --%>  
+<%-- Fin P韊 de la p醙ina --%>  
 
         <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -226,7 +230,7 @@
         </script>
         <%-- Script para la lista de programas--%>
         <script type="text/javascript">        
-        $(document).ready(function(){
+        $(document).ready(function(){            
             $('select[name=facultad]').on('change', function(){
                 $.ajax({
                     type: 'GET',

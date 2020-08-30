@@ -119,7 +119,7 @@
 <%-- Fin del píe de la página --%> 
 <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> 
- <script src="../public/js/bootstrap.min.js" type="text/javascript"></script
+ <script src="../public/js/bootstrap.min.js" type="text/javascript"></script> 
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script type="text/javascript">
         
@@ -179,12 +179,21 @@
             }
          
             if(confirmacion){
-            alert('el programa fué creada con exito.' + idcampus + ", " + idfacultad + ", " + nombreprograma + ", " + nombremodalidad);
+             Swal.fire(
+                    'Nuevo Programa',
+                    'Se ha Agregrado una Nuevo Programa',
+                    'success'
+                );
             
             document.getElementById('formularioProgramas').submit();             
                 }else{
-                            alert('Por favor diligencie todos los campos');
-                        }
+                            
+                       Swal.fire(
+                    'Error',
+                    'Por favor Diligencie todos los campos',
+                    'error'
+                           );  
+                   }
                     }
                     );
                 }

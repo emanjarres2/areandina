@@ -154,7 +154,7 @@
                     </div>
                     </div>
                 <br>
-                <div class="row" style="margin-left: 73%;">
+                <div class="row" style="margin-left: 83%;">
                     <div class="col">
                     <button class="btn btn-primary" type="submit" id="btnformularioCrear" name="btnformularioCrear" value="2">Guardar</button>
                     </div>

@@ -21,9 +21,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author emanjarres
+ * @author manjarres
  */
-public class ConsultaMonitoria extends HttpServlet {
+public class _ConsultaTotalMonitoriasAsignadas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,50 +36,59 @@ public class ConsultaMonitoria extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/json;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        
         PrintWriter out = response.getWriter();
-        Connection con =null;
-            Conexion cn = new Conexion();
-            Statement st = null;
-           ResultSet rs = null;
-           String datos="";
-           try{
-         String sql="select t.Id_tutorias, t.fecha,e.Name_estudiantes,e.Documento, e.Phone_users, e.Mail_users, s.nombre,f.Name_factor,us.Name_users,t.observaciones from tutorias t inner join estudiantes e on t.Id_estudiante=e.Documento inner join semestre s on t.semestre=s.Id_semestre inner join factor_asociado f on t.Id_factor=f.Id_factor inner join usuarios us on t.Id_tutor=us.Id_usuarios WHERE t.estado='abierto'";
-         con=cn.getConexion();
-         st=con.createStatement();
-         rs=st.executeQuery(sql); 
-         com.google.gson.JsonObject objetos= new JsonObject();
-         JsonArray array = new JsonArray();
-         while(rs.next()){
-            JsonObject item = new JsonObject();
-            item.addProperty("Id_tutorias", rs.getInt("Id_tutorias"));
-            item.addProperty("fecha", rs.getString("fecha"));
-            item.addProperty("Documento", rs.getString("Documento"));
-            item.addProperty("Name_estudiantes", rs.getString("Name_estudiantes"));
-            item.addProperty("Telefono_estudiantes", rs.getString("Phone_users"));
-            item.addProperty("Mail_estudiantes", rs.getString("Mail_users"));
-            item.addProperty("nombre", rs.getString("nombre"));
-            item.addProperty("Name_factor", rs.getString("Name_factor"));
-            item.addProperty("Name_users", rs.getString("Name_users"));
-            item.addProperty("observaciones", rs.getString("observaciones"));
-            
-            array.add(item);
-            //datos +=rs.getInt(1)+" "+rs.getString(2);
-        }
-        objetos.add("datos", array);
-        out.print(objetos.toString());
-        }catch(SQLException e){     
-        }finally{
+        request.setCharacterEncoding("UTF-8");
+        Connection con = null;
+        Conexion cn = new Conexion();
+        Statement st = null;
+        ResultSet rs = null;
+        String datos = "";
+        
+        try {
+            String sql = "SELECT tutorias.fecha, estudiantes.Name_Estudiantes, semestre.nombre, factor_asociado.Name_factor, usuarios.Name_users, tutorias.observaciones FROM tutorias, estudiantes, semestre, factor_asociado, usuarios WHERE tutorias.Id_estudiante=estudiantes.Documento AND tutorias.semestre=semestre.Id_semestre AND tutorias.Id_factor=factor_asociado.Id_factor AND tutorias.Id_tutor=usuarios.Id_usuarios";            
+            con = cn.getConexion();
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+            com.google.gson.JsonObject objetos = new JsonObject();
+            JsonArray array = new JsonArray();
+            while (rs.next()) {
+                JsonObject item = new JsonObject();
+                item.addProperty("fecha", rs.getString("fecha"));                
+                item.addProperty("estudiante", rs.getString("Name_Estudiantes"));
+                item.addProperty("semestre", rs.getString("nombre"));
+                item.addProperty("factor", rs.getString("Name_factor"));
+                item.addProperty("monitor", rs.getString("Name_users"));               
+                item.addProperty("observaciones", rs.getString("observaciones"));               
+                               
+                array.add(item);
+                //datos +=rs.getInt(1)+" "+rs.getString(2);
+            }
+            objetos.add("datos", array);
+            out.print(objetos.toString());
+        } catch (SQLException e) {
+        } finally {
             try {
-                if(con != null) out.close();
-                if(st != null) st.close(); 
-                if(rs != null) rs.close();
+                if (con != null) {
+                    out.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
             } catch (SQLException e) {
                 System.out.println("Error 4: " + e);
             }
         }
-            
+        
+        
+        
+        
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

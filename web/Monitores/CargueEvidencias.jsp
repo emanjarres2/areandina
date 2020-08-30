@@ -5,7 +5,6 @@
 --%>
 
 <%@page import="Controller.MuestraInforme"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page  session="true"%>
 <%
     HttpSession objetoSession = request.getSession();
@@ -23,7 +22,7 @@
         <title>SIGMAA | Manejo de Evidencias</title>
     </head>
     <body>
-       <%--Inicio del encabezado de la pÃ¡gina --%>  
+       <%--Inicio del encabezado de la página --%>  
     <div class="card-header">
         <div class="container">
             <div class="row">
@@ -49,15 +48,15 @@
                     </nav>
                 </div>
                 <div class="col-sm-3">
-                    <h6>Inicio de sesiÃ³n como:</h6>
+                    <h6>Inicio de sesión como:</h6>
                     <% out.print(usuario); %> 
                 </div>
             </div>                    
         </div> 
     </div>
-<%--Fin del encabezado de la pÃ¡gina --%>  
+<%--Fin del encabezado de la página --%>  
 
-<%-- Cuerpo de la pÃ¡gina --%>
+<%-- Cuerpo de la página --%>
 <form action="../ModificarTutorias?accion=actualizar" method="POST" enctype="multipart/form-data" > 
     <div class="card-body">
         <div class="card text-center">
@@ -101,9 +100,9 @@
                         <div class="justify-content-around">
                             <h6>Siga las siguientes recomendaciones</h6>
                         <p>En caso de decir que, si algunas de estas opciones lo que tiene que hacer es anexar en este 
-                            documento la evidencia, en los casos de correo electrÃ³nicos, atenciÃ³n por whappsat es preferible 
-                            que anexe las capturas de pantallas, si es atentado en una sesiÃ³n en lÃ­nea anexe el enlace en donde 
-                            quede grabada la sesiÃ³n en lÃ­nea.</p>    
+                            documento la evidencia, en los casos de correo electrónicos, atención por whappsat es preferible 
+                            que anexe las capturas de pantallas, si es atentado en una sesión en línea anexe el enlace en donde 
+                            quede grabada la sesión en línea.</p>    
                         </div>            
                         <div class="form-group row">                            
                             <div class="col-4">                            
@@ -112,8 +111,8 @@
                                     <option value="foto">Fotografia</option>    
                                     <option value="captura">Captura de pantalla</option>    
                                     <option value="whatsapp">Whatsapp</option>    
-                                    <option value="correo">Correo electrÃ³nico</option>
-                                    <option value="sesion">SesiÃ³n en linea</option>
+                                    <option value="correo">Correo electrónico</option>
+                                    <option value="sesion">Sesión en linea</option>
                                 </select>
                             </div>            
                             <div class="col-4">                            
@@ -127,15 +126,15 @@
             
         </div>   
 </form>                         
-<%-- Fin del cuerpo de la pÃ¡gina --%>  
+<%-- Fin del cuerpo de la página --%>  
             
-<%-- PÃ­e de la pÃ¡gina --%>            
+<%-- Píe de la página --%>            
         <div class="card-footer text-center">    
             <div class="card-footer text-muted">
-                <h3>Sistema de InformaciÃ³n y GestiÃ³n de Monitoria AcadÃ©mica Andina - SIGMAA</h3>
+                <h3>Sistema de Información y Gestión de Monitoria Académica Andina - SIGMAA</h3>
             </div>
         </div>
-<%-- Fin del pÃ­e de la pÃ¡gina --%>
+<%-- Fin del píe de la página --%>
 <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
@@ -171,14 +170,11 @@
                                 $('select[name=asignatura]').append("<option value="+codigo+">"+nombre+"</option>");    
                                 }else{
                                 $('select[name=asignatura]').append("<option selected>"+vacio+"</option><option value="+codigo+">"+nombre+"</option>");    
-                                }
-                                
+                                }                                
                             } 
-                        }
-                        
+                        }                        
                     }
-                });
-                
+                });                
             });
         });
                

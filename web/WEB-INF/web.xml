@@ -176,6 +176,14 @@
         <servlet-name>CerrarCasos</servlet-name>
         <servlet-class>Servlet.CerrarCasos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>_ConsultaMonitoriasReportadas</servlet-name>
+        <servlet-class>Servlet._ConsultaMonitoriasReportadas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>_ConsultaTotalMonitoriasAsignadas</servlet-name>
+        <servlet-class>Servlet._ConsultaTotalMonitoriasAsignadas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -351,6 +359,14 @@
     <servlet-mapping>
         <servlet-name>CerrarCasos</servlet-name>
         <url-pattern>/CerrarCasos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>_ConsultaMonitoriasReportadas</servlet-name>
+        <url-pattern>/consultamonitoriasreportadas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>_ConsultaTotalMonitoriasAsignadas</servlet-name>
+        <url-pattern>/consultatotalmonitoriasasignadas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

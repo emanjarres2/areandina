@@ -5,6 +5,7 @@
  */
 package Servlet;
 
+import Clases.Monitorias;
 import Clases.Resultado;
 import Modelo.GestionesTutorias;
 import java.io.File;
@@ -48,6 +49,7 @@ public class _GuardarResultados extends HttpServlet {
 //        Date fecha = Date.valueOf(request.getParameter("fecha"));
 //        int factor = Integer.parseInt(request.getParameter("factor"));
 //        int monitoria = Integer.parseInt(request.getParameter("monitoria"));
+//        int identificacionMonitor = Integer.parseInt(request.getParameter("identificacionMonitor"));
 //        int sede = Integer.parseInt(request.getParameter("sede"));
 //        int facultad = Integer.parseInt(request.getParameter("facultad"));
 //        int programa = Integer.parseInt(request.getParameter("programa"));
@@ -58,11 +60,17 @@ public class _GuardarResultados extends HttpServlet {
 //        out.print("Codigo del estudiante: "+estudiante+"/ Fecha: "+fecha+"/ Factor: "+factor+"/ Monitoria: "+monitoria
 //        +"/ Sede: "+sede+"/ Facultad: "+facultad+"/ Programa: "+programa+"/ Materia: "+materia+"/ Remision: "+remision
 //        +"/ Evidencia: "+evidencia+"/ Observaciones: "+texto);
+
+          //out.print("Hola mundo");
         
         String accion = request.getParameter("btnGuardar");
         SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
-        String ruta = "C:\\Users\\emanjarres\\Documents\\NetBeansProjects\\areandina\\web\\evidencias\\";
-        Resultado r = new Resultado();
+  
+        String ruta = "C:\\Users\\manjarres\\Documents\\areandina\\web\\evidencias\\";
+        String rutaServidor = "http://localhost:8080/areandina//evidencias/";
+                
+        
+        Monitorias r = new Monitorias();        
         GestionesTutorias gt = new GestionesTutorias();
         //out.print(accion);
         switch (accion){               
@@ -79,21 +87,25 @@ public class _GuardarResultados extends HttpServlet {
                         if(!fileitem.isFormField()){
                             File f = new File(ruta+fileitem.getName());
                             fileitem.write(f);
-                            r.setRuta(ruta+fileitem.getName());
+                            r.setRuta(rutaServidor+fileitem.getName());
                         }else{
                             lista.add(fileitem.getString());
                         }
                     }
+                    r.setDocumentoEstudiante(lista.get(0));
+                    r.setFecha(Date.valueOf(lista.get(1)));
+                    r.setFactor(Integer.parseInt(lista.get(2)));
+                    r.setIdMonitoria(Integer.parseInt(lista.get(3)));
+                    r.setIdMonitor(Integer.parseInt(lista.get(4)));
+                    r.setIdSede(Integer.parseInt(lista.get(5)));
+                    r.setIdFacultad(Integer.parseInt(lista.get(6)));
+                    r.setIdPrograma(Integer.parseInt(lista.get(7)));
+                    r.setIdMateria(Integer.parseInt(lista.get(8)));
+                    r.setObservaciones(lista.get(9));
+                    r.setIdRemision(Integer.parseInt(lista.get(10)));
+                    r.setTipoEvidencia(lista.get(11));
                     
-                    r.setIdTutoria(Integer.parseInt(lista.get(1)));
-                    r.setRemision(Integer.parseInt(lista.get(2)));                    
-                    r.setFecha(Date.valueOf(lista.get(3)));                    
-                    r.setAsignatura(Integer.parseInt(lista.get(4)));                    
-                    r.setObservaciones(lista.get(5));
-                    r.setNombre(lista.get(6)); 
-                    r.setRuta(lista.get(7));
-                    r.setIdEstudiante(lista.get(8));
-                    gt.repotarTutorias(r);
+                    gt.crearMonitorias(r);
                     
                 } catch (Exception e) {
                     out.print("Error: "+ e);

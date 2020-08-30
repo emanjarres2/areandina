@@ -32,6 +32,7 @@ public class CrearProgramas extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
+        //request.setCharacterEncoding("UTF-8");
        PrintWriter out = response.getWriter();
        
        
@@ -66,7 +67,7 @@ public class CrearProgramas extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-       
+        
         
        
        

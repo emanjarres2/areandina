@@ -80,12 +80,12 @@ public class CrearUsuarios extends HttpServlet {
         Conexion cn = new Conexion();
         PreparedStatement st = null;
         ResultSet rs = null;
-        String identificacion = request.getParameter("identificacion");
+        int identificacion = Integer.parseInt(request.getParameter("identificacion"));        
         String nombres = request.getParameter("nombresApellidos");
         String mail = request.getParameter("mail");
         String telefono = request.getParameter("telefono");
         String tipo = request.getParameter("tipo");
-        String modalidad = request.getParameter("nombreModalidad");
+        //String modalidad = request.getParameter("nombreModalidad");
         String semestre = request.getParameter("semestre");
         String id_campus = request.getParameter("idcampus");
         String id_facultad = request.getParameter("idfacultad");
@@ -104,10 +104,10 @@ public class CrearUsuarios extends HttpServlet {
         
         if(uno.equals(btn1)){
             try {
-                String consultax = "insert into usuarios (Id_usuarios, Name_users, Mail_users, Phone_users, Type_users, Id_campus, Id_faculty, Id_program, Semestre, Modalidad) values(?,?,?,?,?,?,?,?,?,?)";
+                String consultax = "insert into usuarios (Id_usuarios, Name_users, Mail_users, Phone_users, Type_users, Id_campus, Id_faculty, Id_program, Semestre) values(?,?,?,?,?,?,?,?,?)";
                 con=cn.getConexion();
                 st=(PreparedStatement) con.prepareStatement(consultax);
-                st.setString(1, identificacion);
+                st.setInt(1, identificacion);
                 st.setString(2, nombres);
                 st.setString(3, mail);
                 st.setString(4, telefono);
@@ -115,16 +115,13 @@ public class CrearUsuarios extends HttpServlet {
                 st.setString(6, id_campus);
                 st.setString(7, id_facultad);
                 st.setString(8, id_programa);
-                st.setString(9, semestre);
-                st.setString(10, modalidad);
+                st.setString(9, semestre);                
                 
-                if (st.executeUpdate() == 1) {
-                       
+                if (st.executeUpdate() == 1) {                       
                         response.sendRedirect("OficinaOPE/NuevoMonitor.jsp");
                 } else {
                     response.sendRedirect("ups.jsp");
                 }
-
             } catch (IOException | SQLException e) {
                 out.print("Error 3: " + e);
             } finally {
@@ -139,10 +136,10 @@ public class CrearUsuarios extends HttpServlet {
         }
         if(dos.equals(btn2)){
             try {
-                String consultax = "insert into usuarios (Id_usuarios, Name_users, Mail_users, Phone_users, Type_users, Id_campus, Id_faculty, Id_program, Semestre, Modalidad) values(?,?,?,?,?,?,?,?,?,?)";
+                String consultax = "insert into usuarios (Id_usuarios, Name_users, Mail_users, Phone_users, Type_users, Id_campus, Id_faculty, Id_program, Semestre) values(?,?,?,?,?,?,?,?,?)";
                  con=cn.getConexion();
                 st=(PreparedStatement) con.prepareStatement(consultax);               
-                st.setString(1, identificacion);
+                st.setInt(1, identificacion);
                 st.setString(2, nombres);
                 st.setString(3, mail);
                 st.setString(4, telefono);
@@ -150,16 +147,10 @@ public class CrearUsuarios extends HttpServlet {
                 st.setString(6, id_campus);
                 st.setString(7, id_facultad);
                 st.setString(8, id_programa);
-                st.setString(9, semestre);
-                st.setString(10, modalidad);
+                st.setString(9, semestre);                
                             
                 if (st.executeUpdate() == 1) {
-                        
-                       
-        
                         response.sendRedirect("administrador/CrearUsuarios.jsp");
-			
-                        
                 } else {
                    
                     response.sendRedirect("ups.jsp");

@@ -46,7 +46,10 @@ public class ConsultaResultados extends HttpServlet {
         String datos = "";
         
         try {
-            String sql = "select r.Id_tutoria,e.Name_Estudiantes,us.Name_users,t.observaciones,r.observa,s.nombre,f.Name_factor,t.estado,r.ruta from resultado r inner join tutorias t on t.Id_tutorias=r.Id_tutoria inner join estudiantes e on e.Documento=r.Id_alumno inner join semestre s on e.Semestre=s.Id_semestre inner join usuarios u on t.Id_tutor=u.Id_usuarios inner join factor_asociado f on t.Id_factor=f.Id_factor inner join usuarios us on t.Id_tutor=us.Id_usuarios where t.estado='abierto';";            
+            String sql = "SELECT tutorias.Id_tutorias, estudiantes.Name_Estudiantes, semestre.nombre, factor_asociado.Name_factor, usuarios.Name_users, tutorias.observaciones, resultado.observa, resultado.ruta\n" +
+"FROM tutorias, estudiantes, semestre, factor_asociado, usuarios, resultado\n" +
+"WHERE tutorias.estado='abierto' AND tutorias.Id_estudiante=estudiantes.Documento AND tutorias.semestre=semestre.Id_semestre\n" +
+"AND tutorias.Id_factor=factor_asociado.Id_factor AND tutorias.Id_tutor=usuarios.Id_usuarios AND tutorias.Id_tutorias=resultado.Id_tutoria";            
             con = cn.getConexion();
             st = con.createStatement();
             rs = st.executeQuery(sql);
@@ -54,16 +57,16 @@ public class ConsultaResultados extends HttpServlet {
             JsonArray array = new JsonArray();
             while (rs.next()) {
                 JsonObject item = new JsonObject();
-                item.addProperty("Id_tutoria", rs.getInt("Id_tutoria"));                
+                item.addProperty("Id_tutoria", rs.getInt("Id_tutorias"));                
                 item.addProperty("estudiante", rs.getString("Name_Estudiantes"));
                 item.addProperty("semestre", rs.getString("nombre"));
                 item.addProperty("factor", rs.getString("Name_factor"));
                 item.addProperty("monitor", rs.getString("Name_users"));
                 item.addProperty("obsOPE", rs.getString("observaciones"));
                 item.addProperty("obsMON", rs.getString("observa"));
-                item.addProperty("estado", rs.getString("estado"));
-                item.addProperty("ruta", "<a href='../"+rs.getString("ruta")+"' class='btn-xs btn btn-success' target='_blank' style=' margin-left:30px; ' title='Evidencias' download><span class='fas fa-download' ></span></a>");
-
+                //item.addProperty("estado", rs.getString("estado"));                
+                item.addProperty("ruta", "<a href='"+rs.getString("ruta")+"' class='btn-xs btn btn-success' target='_blank' style=' margin-left:30px; ' title='Evidencias' download><span class='fas fa-download' ></span></a>");
+//tutorias.Id_tutorias, estudiantes.Name_Estudiantes, semestre.nombre, factor_asociado.Name_factor, usuarios.Name_users, tutorias.observaciones, resultado.observa, resultado.ruta                
                 array.add(item);
                 //datos +=rs.getInt(1)+" "+rs.getString(2);
             }
